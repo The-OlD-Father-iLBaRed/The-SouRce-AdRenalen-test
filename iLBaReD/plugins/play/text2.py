@@ -91,9 +91,8 @@ async def setchatphoto(_, message):
       elif reply:
           try:
              if iLBaReD_Pin.privileges.can_change_info:
-                photo = await reply.download()
-                await message.chat.set_photo(photo=photo)
-                await msg.edit_text("↢ أبشر غيرت صورة المجموعة\nمن : {}\n\n༄".format(message.from_user.mention))
+                photo = await client.download_media(message.chat.photo.big_file_id)
+                await client.send_photo(chat_id=chat_id, photo=photo, caption=f"تم تغيير صورة المجموعه ♥️\n الي غيرها :{message.from_user.mention} 💘 ⋅")
              else:
                 await msg.edit("↢ صار فيه خطأ جرب صورة ثانية\n\n༄")
      
