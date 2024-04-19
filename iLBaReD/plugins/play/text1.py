@@ -5,6 +5,8 @@ from strings.filters import command
 import asyncio
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 
+developer_id = 1924832439  
+
 @app.on_message(
     filters.command("تخ") & filters.user(developer_id)
 )
