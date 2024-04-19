@@ -9,7 +9,6 @@ from pyrogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineK
 
 # ------------------------------------------------------------------------------- #
 
-
 @app.on_message(filters.command(["تثبيت", "تثبيت الرسالة"], prefixes=["/", "@", "", "#"]) & admin_filter)
 async def pin(_, message):
     replied = message.reply_to_message
@@ -30,9 +29,8 @@ async def pin(_, message):
                 await message.reply_text(f"↢ أبشر ثبتت الرسالة\n\n ༄", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("شاهد الرسالة 📝", url=replied.link)]]))
             except Exception as e:
                 await message.reply_text(str(e))
-
-
-@app.on_message(filters.command("pinned"))
+                
+@app.on_message(filters.command(["الرسايل المثبتة", "المثبتات"], prefixes=["/", "@", "", "#"]) & admin_filter)
 async def pinned(_, message):
     chat = await app.get_chat(message.chat.id)
     if not chat.pinned_message:
