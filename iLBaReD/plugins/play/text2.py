@@ -30,18 +30,6 @@ async def pin(_, message):
             except Exception as e:
                 await message.reply_text(str(e))
                 
-@app.on_message(filters.command(["الرسايل المثبتة", "المثبتات"], prefixes=["/", "@", "", "#"]) & admin_filter)
-async def pinned(_, message):
-    chat = await app.get_chat(message.chat.id)
-    if not chat.pinned_message:
-        return await message.reply_text("↢ ما في رسالة مُثبتة\n\n ༄")
-    try:        
-        await message.reply_text("↢ قائمة الرسائل المثبتة",reply_markup=
-        InlineKeyboardMarkup([[InlineKeyboardButton(text="📝 عرض الرسالة",url=chat.pinned_message.link)]]))  
-    except Exception as er:
-        await message.reply_text(er)
-
-
 # ------------------------------------------------------------------------------- #
 
 @app.on_message(filters.command(["الغاء تثبيت"], prefixes=["/", "@", "", "#"]) & admin_filter)
