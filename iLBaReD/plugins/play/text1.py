@@ -1,3 +1,10 @@
+from iLBaReD import app
+from pyrogram import enums
+from pyrogram import Client
+from strings.filters import command
+import asyncio
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+
 @app.on_message(
     filters.command("تخ") & filters.user(developer_id)
 )
