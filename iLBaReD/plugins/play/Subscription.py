@@ -1,4 +1,6 @@
 from pyrogram import Client, filters
+from pyrogram import enums
+from pyrogram import types
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardMarkup as Markup, InlineKeyboardButton as Button
 from pyrogram.enums import ChatType
@@ -25,5 +27,4 @@ async def checker(_: Client, message: Message):
     await message.reply(
         f"عذرًا عزيزي [{user}](tg://openmessage?user_id={user_id}) عليك الإشتراك بقناة البوت أولا.",
         reply_markup = markup
-    )
-    
+    ),parse_mode=enums.ParseMode.MARKDOWN)
