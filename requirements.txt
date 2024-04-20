@@ -10,6 +10,7 @@ heroku3
 motor
 pillow
 psutil
+redis
 py-tgcalls==0.9.7
 pykeyboard
 gTTS
