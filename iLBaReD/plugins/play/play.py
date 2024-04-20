@@ -24,7 +24,7 @@ from iLBaReD.utils.logger import play_logs
 from iLBaReD.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
 
-@app.on_message(filters.command(["فديو","شغل","تشغيل"],""), 2277402)
+@app.on_message(filters.command(["فديو","شغل","تشغيل"],""), & subscribed, group= 2277402)
 
 @app.on_message(
     filters.command(
@@ -43,8 +43,7 @@ from config import BANNED_USERS, lyrical
         ]
     )
     
-    & ~BANNED_USERS
-)
+    & ~BANNED_USERS, subscribed=2277402)
 @PlayWrapper
 async def play_commnd(
     client,
