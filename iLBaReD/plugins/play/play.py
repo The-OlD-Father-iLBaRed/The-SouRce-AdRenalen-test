@@ -1,6 +1,6 @@
 import random
 import string
-from strings.filters import subscribed
+
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
@@ -24,7 +24,7 @@ from iLBaReD.utils.logger import play_logs
 from iLBaReD.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
 
-@app.on_message(filters.command(["فديو","شغل","تشغيل"],""), & subscribed, group= 2277402)
+@app.on_message(filters.command(["فديو","شغل","تشغيل"],""), 2277402)
 
 @app.on_message(
     filters.command(
@@ -43,7 +43,8 @@ from config import BANNED_USERS, lyrical
         ]
     )
     
-    & ~BANNED_USERS, subscribed=2277402)
+    & ~BANNED_USERS
+)
 @PlayWrapper
 async def play_commnd(
     client,
