@@ -3,9 +3,9 @@ from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardMarkup as Markup, InlineKeyboardButton as Button
 from pyrogram.enums import ChatType
 from pyrogram.errors import UserNotParticipant
-from AnonXMusic import app
+from iLBaReD import app
 
-channel = "BENfiles"
+channel = "WA_ADRENALEN"
 async def subscription(_, __: Client, message: Message):
     user_id = message.from_user.id
     try: await app.get_chat_member(channel, user_id)
