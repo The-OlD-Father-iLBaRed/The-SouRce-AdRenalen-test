@@ -17,13 +17,12 @@ async def subscription(_, __: Client, message: Message):
     
 subscribed = filters.create(subscription)
 
-@app.on_message(~subscribed)
+@@app.on_message(~subscribed)
 async def checker(_: Client, message: Message):
     if message.chat.type in [ChatType.GROUP, ChatType.SUPERGROUP]: await message.delete()
     user_id = message.from_user.id
     user = message.from_user.first_name
-    await message.reply_text(
-            "عذرًا عزيزي [{user}](tg://openmessage?user_id={user_id}) عليك الإشتراك بقناة البوت أولا.",
+    await message.reply(f"عذرًا عزيزي [{user}](tg://openmessage?user_id={user_id}) عليك الإشتراك بقناة البوت أولا.",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/{channel}")]]
             ),parse_mode=enums.ParseMode.MARKDOWN)
