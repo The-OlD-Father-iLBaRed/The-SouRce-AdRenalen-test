@@ -23,8 +23,8 @@ async def checker(_: Client, message: Message):
     user = message.from_user.first_name
     markup = Markup([
         [Button("- اشتراك -", url=f"https://t.me/{channel}")]
-    ])
+    ]),parse_mode=enums.ParseMode.MARKDOWN)
     await message.reply(
         f"عذرًا عزيزي [{user}](tg://openmessage?user_id={user_id}) عليك الإشتراك بقناة البوت أولا.",
         reply_markup = markup
-    ),parse_mode=enums.ParseMode.MARKDOWN)
+    )
