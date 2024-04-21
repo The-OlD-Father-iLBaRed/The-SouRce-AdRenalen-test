@@ -7,10 +7,11 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
     & filters.group
     & ~filters.edited
 )
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
-                    await message.reply_photo(photo.file_id,       caption=f"""غير صورتك بقا قرفتنا 😏""", 
+async def madison(client: Client, message: Message):
+   usr = await client.get_users(message.from_user.id)
+   name = usr.first_name
+   async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
+                   await message.reply_photo(photo.file_id,       caption=f"""غير صورتك بقا قرفتنا 😏""", 
         reply_markup=InlineKeyboardMarkup(
             [
                 [
