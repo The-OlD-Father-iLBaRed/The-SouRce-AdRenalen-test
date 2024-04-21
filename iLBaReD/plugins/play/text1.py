@@ -15,7 +15,7 @@ stopProcess = False
 
 # ------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command(["مسح الحسابات المحذوفة","مسح الحسابات المحذوفه], ""))
+@app.on_message(filters.command(["مسح الحسابات المحذوفة","مسح الحسابات المحذوفه"], ""))
 async def remove(client, message):
   global stopProcess
   try: 
