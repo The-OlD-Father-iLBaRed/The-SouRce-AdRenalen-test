@@ -3,15 +3,14 @@ import os
 import time
 import requests
 import aiohttp
-from pyrogram import filters
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from strings.filters import command
 from iLBaReD import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from iLBaReD import app
 from asyncio import gather
 
-@app.on_message(command(["معلوماته", "ا"]) & filters.group & ~filters.edited) 
+@app.on_message(command(["معلوماته","ا"]) & filters.group & ~filters.edited) 
 async def hshs(client: Client, message: Message):      
     usr = await client.get_users(message.reply_to_message.from_user.id)
     name = usr.first_name#
