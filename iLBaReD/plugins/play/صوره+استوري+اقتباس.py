@@ -9,7 +9,6 @@ from pyrogram import enums
 from pyrogram.enums import ChatType, ChatMemberStatus, ParseMode, ChatMemberStatus
 from pyrogram import Client, filters, idle
 from pyromod import listen
-from pyrogram import Client as app
 
 
 @app.on_message(command([f"صوره", "صورة", "صور"]))
@@ -26,6 +25,22 @@ reply_markup=InlineKeyboardMarkup(
             ]
         )
                            )
+
+@app.on_message(command([f"😁😁", "✨✨", "😂😂"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,50)
+    url = f"https://t.me/Picture_elnqyb/{rl}"
+    await message.reply_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+                           )
+                           
 
 
 
