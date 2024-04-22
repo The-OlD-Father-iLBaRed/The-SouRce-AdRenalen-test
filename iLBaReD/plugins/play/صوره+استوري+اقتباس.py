@@ -4,6 +4,28 @@ from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from iLBaReD import app
 import random
+
+
+
+
+
+lisetanme = []  
+@Client.on_message(filters.command(["صور انمي", "صورة انمي", "صوره انمي", "انمي"], ""))
+async def sssora(client, message):
+  if not message.chat.type == enums.ChatType.PRIVATE:
+    await joinch(message)
+  if len(lisetanme) == 0:
+     user = await get_userbot(client.me.username)
+     async for msg in user.get_chat_history("LoreBots7"):
+      if msg.media:
+        lisetanme.append(msg)
+  phot = random.choice(lisetanme)
+  photo = f"https://t.me/LoreBots7/{phot.id}"
+  await message.reply_photo(photo=photo, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
+
+
+
+
     
 
 @app.on_message(command([f"صوره", "صورة", "صور"]))
