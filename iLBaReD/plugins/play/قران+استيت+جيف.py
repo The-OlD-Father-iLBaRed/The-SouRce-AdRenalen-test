@@ -10,7 +10,7 @@ import random
 async def Soraa(client: Client, message: Message):
     rl = random.randint(2,50)
     url = f"https://t.me/alkoraan4000/{rl}"
-    await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    await client.send_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
             [
                 [
