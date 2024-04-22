@@ -127,3 +127,20 @@ async def gef(client: Client, message: Message):
             ]
         )
                            )
+
+
+@app.on_message(command(["سورة عشوائية","‹ قرآن عشوائي ›"]))
+async def Soraa(client: Client, message: Message):
+    rl = random.randint(2,50)
+    url = f"https://t.me/alkoraan4000/{rl}"
+    await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+                           )
+
