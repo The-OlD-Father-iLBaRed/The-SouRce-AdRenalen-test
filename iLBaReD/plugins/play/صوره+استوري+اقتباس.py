@@ -8,7 +8,7 @@ import random
 
 @app.on_message(command(["صوره","‹ صورة ›"]))
 async def ihd(client: Client, message: Message):
-    rl = random.randint(2,60)
+    rl = random.randint(2,50)
     url = f"https://t.me/vnnkli/{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
@@ -22,10 +22,28 @@ reply_markup=InlineKeyboardMarkup(
                            )
 
 
+                       
+@app.on_message(command(["النقشبندي","‹ النقشبندي تواشيح ›"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,51)
+    url = f"https://t.me/ggcnjj/{rl}"
+    await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    reply_to_message_id=message.id,
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+                           )
+
+
 
 @app.on_message(command(["استوريهات", "استيت","‹ استوري ›"]))
 async def ihd(client: Client, message: Message):
-    rl = random.randint(2,70)
+    rl = random.randint(2,52)
     url = f"https://t.me/yoipopl{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
@@ -41,7 +59,7 @@ reply_markup=InlineKeyboardMarkup(
 
 @app.on_message(command(["انمي","‹ إنمي ›"]))
 async def ihd(client: Client, message: Message):
-    rl = random.randint(2,80)
+    rl = random.randint(2,53)
     url = f"https://t.me/LoreBots7/{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
@@ -56,28 +74,12 @@ async def ihd(client: Client, message: Message):
                            )
     
                                                               
-@app.on_message(command(["استيكر","‹ جيف ›"]))
-async def ihd(client: Client, message: Message):
-    rl = random.randint(2,90)
-    url = f"https://t.me/GifWaTaN/{rl}"
-    await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
-    reply_to_message_id=message.id,
-    reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
-                ],
-            ]
-        )
-                           )
-    
 
     
     
 @app.on_message(command(["افتار بنات","‹ افتار بناتي ›"]))
 async def ihd(client: Client, message: Message):
-    rl = random.randint(3,00)
+    rl = random.randint(2,54)
     url = f"https://t.me/vvyuol/{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
@@ -94,7 +96,7 @@ async def ihd(client: Client, message: Message):
                             
 @app.on_message(command(["افتار شباب","‹ افتار شبابي ›"]))
 async def ihd(client: Client, message: Message):
-    rl = random.randint(3,10)
+    rl = random.randint(2,55)
     url = f"https://t.me/vgbmm/{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
@@ -107,12 +109,12 @@ async def ihd(client: Client, message: Message):
             ]
         )
                            )
-    
-                       
-@app.on_message(command(["النقشبندي","‹ النقشبندي تواشيح ›"]))
+
+
+@app.on_message(command(["استيكر","‹ جيف ›"]))
 async def ihd(client: Client, message: Message):
-    rl = random.randint(3,20)
-    url = f"https://t.me/ggcnjj/{rl}"
+    rl = random.randint(2,56)
+    url = f"https://t.me/GifWaTaN/{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
     reply_markup=InlineKeyboardMarkup(
