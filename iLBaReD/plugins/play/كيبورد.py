@@ -13,11 +13,6 @@ from pyrogram.types import (
 from iLBaReD import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
     
-@app.on_message(filters.regex("‹ اغلاق الكيبورد ›"))
-async def down(client, message):
-          m = await message.reply("تم اغلاق الكيبورد بنجاح 💘 ⋅ ", reply_markup= ReplyKeyboardRemove(selective=True))
-
-
 @app.on_message(filters.regex("‹ القائمة الرئيسية ›"), group=39)
 @app.on_message(filters.regex("^/adrenalen"), group=39)
 async def cpanel(_, message: Message):             
@@ -37,7 +32,7 @@ REPLY_MESSAGE_BUTTONS = [
 [("نكته"),("حكمه")],
 [("انصحني"),("لو خيروك")],
 [("حساب العمر"),("قسم الصور")],
-[("‹ قسم الصور ›")]]
+[("‹ قسم الصور ›")]],
 [("‹ اغلاق الكيبورد ›")]]
 
 ##############################################################
@@ -58,5 +53,12 @@ REPLY_MESSAGE_BUTTONS = [
 [("‹ افتار شباب ›"),("‹ افتار بنات ›")],
 [("‹ النقشبندي ›")],
 [("‹ اغلاق الكيبورد ›")]]
+
+
+@app.on_message(filters.regex("‹ اغلاق الكيبورد ›"))
+async def down(client, message):
+          m = await message.reply("تم اغلاق الكيبورد بنجاح 💘 ⋅ ", reply_markup= ReplyKeyboardRemove(selective=True))
+
+
 
 ##############################################################
