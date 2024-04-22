@@ -10,7 +10,7 @@ import random
 async def Soraa(client: Client, message: Message):
     rl = random.randint(2,50)
     url = f"https://t.me/alkoraan4000/{rl}"
-    await client.send_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    await message.reply_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -27,7 +27,7 @@ reply_markup=InlineKeyboardMarkup(
 async def gef(client: Client, message: Message):
     rl = random.randint(2,55)
     url = f"https://t.me/GifWaTaN/{rl}"
-    await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    await message.reply_video(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
     reply_markup=InlineKeyboardMarkup(
             [
@@ -64,7 +64,7 @@ async def stats(client: Client, message: Message):
 async def elnaqsbnde(client: Client, message: Message):
     rl = random.randint(2,51)
     url = f"https://t.me/ggcnjj/{rl}"
-    await client.send_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    await message.reply_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
     reply_markup=InlineKeyboardMarkup(
             [
