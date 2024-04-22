@@ -11,7 +11,8 @@ async def Soraa(client: Client, message: Message):
     rl = random.randint(2,50)
     url = f"https://t.me/vnnkli/{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
-reply_markup=InlineKeyboardMarkup(
+    reply_to_message_id=message.id,
+    reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
