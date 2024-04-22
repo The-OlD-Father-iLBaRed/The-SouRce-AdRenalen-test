@@ -9,8 +9,8 @@ import random
 @app.on_message(command(["سورة عشوائية","‹ قرآن عشوائي ›"]))
 async def soraa(client, message): 
     rl = random.randint(2,55)
-    audio = f"https://t.me/a9li91/{rl}"
-    await message.reply_audio(audio=audio, caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    video = f"https://t.me/a9li91/{rl}"
+    await message.reply_video(video=video, caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
             [
                 [
