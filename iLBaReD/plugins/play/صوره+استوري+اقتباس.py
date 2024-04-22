@@ -5,10 +5,6 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from iLBaReD import app
 import random
 
-
-
-
-
 @app.on_message(command([f"صوره", "صورة", "صور"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,50)
@@ -30,7 +26,7 @@ reply_markup=InlineKeyboardMarkup(
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,60)
     url = f"https://t.me/ienamee/{rl}"
-    await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    await client.reply_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
             [
                 [
