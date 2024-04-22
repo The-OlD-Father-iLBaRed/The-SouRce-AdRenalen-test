@@ -7,14 +7,6 @@ from pyrogram import Client as client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from config import appp, OWNER, OWNER_NAME, VIDEO
 
-@call.on_stream_end()
-  async def stream_end_handler1(client, update: Update):
-    if not isinstance(update, StreamAudioEnded):
-        return
-    await change_stream(bot_username, client, update.chat_id)
-
-
-
 async def joinch(message):
         ii = await must_join(message._client.me.username)
         if ii == "معطل":
