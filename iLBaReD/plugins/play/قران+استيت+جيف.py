@@ -11,7 +11,7 @@ async def soraa(client, message):
  if len(listvidquran) == 0:
     id = random.choice(listvidquran)
     video = f"https://t.me/a9li91/{id}"
-    await message.reply_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    await message.reply_audio(audio=audio, caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
             [
                 [
