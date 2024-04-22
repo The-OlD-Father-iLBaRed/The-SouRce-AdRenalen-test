@@ -4,6 +4,12 @@ from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from iLBaReD import app
 import random
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, Message, User, ChatPrivileges, ReplyKeyboardRemove, CallbackQuery
+from pyrogram import enums
+from pyrogram.enums import ChatType, ChatMemberStatus, ParseMode, ChatMemberStatus
+from pyrogram import Client, filters, idle
+from pyromod import listen
+from pyrogram import Client as app
 
 
 @app.on_message(command([f"صوره", "صورة", "صور"]))
