@@ -1,6 +1,5 @@
 import asyncio
 from pyrogram import Client, filters
-from pyrogram import enums
 from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from iLBaReD import app
@@ -13,7 +12,7 @@ lisetanme = []
 @app.on_message(filters.command(["صور انمي", "صورة انمي", "صوره انمي", "انمي"], ""))
 async def sssora(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
-    await joinch(message)
+    
   if len(lisetanme) == 0:
      user = await get_userbot(client.me.username)
      async for msg in user.get_chat_history("LoreBots7"):
@@ -27,7 +26,7 @@ lisethazen = []
 @app.on_message(filters.command(["المزيد من الصور","صور حزينه"], ""))
 async def soorr4(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
-    await joinch(message)
+    
   if len(lisethazen) == 0:
    user = await get_userbot(client.me.username)
    async for msg in user.get_chat_history("PVVVV"):
@@ -41,7 +40,7 @@ lisetbnat = []
 @app.on_message(filters.command(["صور بنات", "صورة لبنت", "انمي بنات", "بنات","رمزيات بنات"], ""))
 async def soora4(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
-    await joinch(message)
+    
   if len(lisetbnat) == 0:
    user = await get_userbot(client.me.username)	
    async for msg in user.get_chat_history("otsoo3"):
@@ -55,7 +54,7 @@ listsoer = []
 @app.on_message(filters.command(["صور", "صوره", "صورة", "رمزيه", "رمزية", "رمزيات"], ""))
 async def sssor(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
-    await joinch(message)
+    
   if len(listsoer) == 0:
    user = await get_userbot(client.me.username)
    async for msg in user.get_chat_history("Picture_elnqyb"):
@@ -69,7 +68,7 @@ listmu = []
 @app.on_message(filters.command(["اغاني", "غنيلي", "غ", "اغنيه","اغنية عشوائية"], ""))
 async def voece(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
-    await joinch(message)
+    
   if len(listmu) == 0:
    user = await get_userbot(client.me.username)
    async for msg in user.get_chat_history("ELNQYBMUSIC"):
@@ -83,7 +82,7 @@ listvid = []
 @app.on_message(filters.command(["ستوري","استوري","حلات واتس"], ""))
 async def videoo(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
-    await joinch(message)
+    
   if len(listvid) == 0:
    user = await get_userbot(client.me.username)
    async for msg in user.get_chat_history("videi_semo"):
@@ -97,7 +96,7 @@ listvidquran = []
 @app.on_message(filters.command(["ستوري قران","استوري قران","حلات واتس قران"], ""))
 async def qurann(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
-    await joinch(message)
+    
   if len(listvidquran) == 0:
    user = await get_userbot(client.me.username)
    async for msg in user.get_chat_history("a9li91"):
@@ -111,7 +110,7 @@ listmuqurannn = []
 @app.on_message(filters.command(["ق", "قران", "قران كريم", "سوره"], ""))
 async def qurann2(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
-    await joinch(message)
+    
   if len(listmuqurannn) == 0:
    user = await get_userbot(client.me.username)
    async for msg in user.get_chat_history("alkoraan4000"):
@@ -119,4 +118,4 @@ async def qurann2(client, message):
         listmuqurannn.append(msg.id)
   audi = random.choice(listmuqurannn)
   audio = f"https://t.me/alkoraan4000/{audi}"
-  await message.reply_audio(audio=audio, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
+  await message.reply_audio(audio=audio, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")                       )
