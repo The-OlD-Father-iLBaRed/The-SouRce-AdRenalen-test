@@ -9,8 +9,8 @@ import random
 @app.on_message(command(["سورة عشوائية","‹ قرآن عشوائي ›"]))
 async def soraa(client, message):
  if len(listvidquran) == 0:
-    id = random.choice(listvidquran)
-    video = f"https://t.me/a9li91/{id}"
+    audi = random.choice(listvidquran)
+    audio = f"https://t.me/a9li91/{audi}"
     await message.reply_audio(audio=audio, caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
             [
