@@ -5,7 +5,6 @@ from typing import Union
 from pyrogram import Client, filters
 from pyrogram import Client as client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from config import appp, OWNER, OWNER_NAME, VIDEO
 
 async def joinch(message):
         ii = await must_join(message._client.me.username)
