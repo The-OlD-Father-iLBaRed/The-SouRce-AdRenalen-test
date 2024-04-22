@@ -23,14 +23,15 @@ reply_markup=InlineKeyboardMarkup(
             ]
         )
                            )
-                           
-                                   
-@app.on_message(command(["صوره انمي", "انمي"]))
+
+
+
+@app.on_message(command([f"انمي", "بيك انمي", "اميي"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,60)
     url = f"https://t.me/ienamee/{rl}"
-    await client.send_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
-    reply_markup=InlineKeyboardMarkup(
+    await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
@@ -39,8 +40,8 @@ async def ihd(client: Client, message: Message):
             ]
         )
                            )
-    
-
+                           
+                                   
 
 
 @app.on_message(command([f"استوريهات", "استوري", "استيت"]))
