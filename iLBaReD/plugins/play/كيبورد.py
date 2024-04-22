@@ -20,17 +20,18 @@ REPLY_MESSAGE = "صلي علي النبي وتبسم ♥️☺️!"
 
 
 REPLY_MESSAGE_BUTTONS = [
-["السورس","الاوامر"],
-["احرف","مطور السورس"],
-["تويت","صراحه"],
-["نكته","حكمه"],
-["انصحني","لو خيروك"],
-["حساب العمر","قسم الصور"],    
-["‹ اغلاق الكيبورد ›"]]
+[("السورس"),("الاوامر")],
+[("احرف"),("مطور السورس")],
+[("تويت"),("صراحه")],
+[("نكته"),("حكمه")],
+[("انصحني"),("لو خيروك")],
+[("حساب العمر"),("قسم الصور")],
+[("‹ اغلاق الكيبورد ›")]]
 
 
 
-@app.on_message(filters.regex("/adrenalen","‹ القائمة الرئيسية ›"), group=39)
+@app.on_message(filters.regex("‹ القائمة الرئيسية ›"), group=39)
+@app.on_message(filters.regex("^/adrenalen"), group=39)
 async def cpanel(_, message: Message):             
         text = REPLY_MESSAGE
         reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, resize_keyboard=True, selective=True)
@@ -45,13 +46,11 @@ REPLY_MESSAGE = "- مرحبا بك في قسم الصور ✨♥️ ،"
 
 
 REPLY_MESSAGE_BUTTONS = [
-["‹ صوره ›","‹ استوري ›"],
-["‹ استيكر ›","‹ انمي ›"],
-["‹ افتار شباب ›","‹ افتار بنات ›"],
-["‹ النقشبندي ›"],
-["‹ اغلاق الكيبورد ›"]]
-
-
+[("‹ صوره ›"),("‹ استوري ›")],
+[("‹ استيكر ›"),("‹ انمي ›")],
+[("‹ افتار شباب ›"),("‹ افتار بنات ›")],
+[("‹ النقشبندي ›")],
+[("‹ اغلاق الكيبورد ›")]]
 
 @app.on_message(filters.regex("قسم الصور"), group=40)
 async def cpanel(_, message: Message):             
