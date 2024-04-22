@@ -7,7 +7,7 @@ import random
     
 
 @app.on_message(command(["سورة عشوائية","‹ قرآن عشوائي ›"]))
-async def Soraa(client: Client, message: Message):
+async def soraa(client, message):
     rl = random.randint(2,50)
     url = f"https://t.me/alkoraan4000/{rl}"
     await message.reply_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
