@@ -9,29 +9,10 @@ import random
 
 
 
-lisetanme = []  
-@Client.on_message(filters.command(["صور انمي", "صورة انمي", "صوره انمي", "انمي"], ""))
-async def sssora(client, message):
-  if not message.chat.type == enums.ChatType.PRIVATE:
-    await joinch(message)
-  if len(lisetanme) == 0:
-     user = await get_userbot(client.me.username)
-     async for msg in user.get_chat_history("LoreBots7"):
-      if msg.media:
-        lisetanme.append(msg)
-  phot = random.choice(lisetanme)
-  photo = f"https://t.me/LoreBots7/{phot.id}"
-  await message.reply_photo(photo=photo, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
-
-
-
-
-    
-
 @app.on_message(command([f"صوره", "صورة", "صور"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,50)
-    url = f"https://t.me/Picture_elnqyb/{phot.id}"
+    url = f"https://t.me/Picture_elnqyb/{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
             [
@@ -49,7 +30,7 @@ reply_markup=InlineKeyboardMarkup(
 @app.on_message(command([f"استوريهات", "استوري", "استيت"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,50)
-    url = f"https://t.me/videi_semo/{id}"
+    url = f"https://t.me/videi_semo//{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
 reply_markup=InlineKeyboardMarkup(
             [
@@ -65,7 +46,7 @@ reply_markup=InlineKeyboardMarkup(
 @app.on_message(command(["صوره انمي", "انمي"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,50)
-    url = f"https://t.me/LoreBots7/{phot.id}"
+    url = f"https://t.me/LoreBots7/{rl}"
     await client.send_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_markup=InlineKeyboardMarkup(
             [
