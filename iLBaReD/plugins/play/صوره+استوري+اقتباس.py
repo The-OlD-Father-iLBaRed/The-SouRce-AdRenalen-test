@@ -61,7 +61,7 @@ async def stats(client: Client, message: Message):
 @app.on_message(command(["انمي","‹ إنمي ›"]))
 async def inme(client: Client, message: Message):
     rl = random.randint(2,53)
-    url = f"https://t.me/LoreBots7/{rl}"
+    url = f"https://t.me/ienamee/{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
     reply_markup=InlineKeyboardMarkup(
