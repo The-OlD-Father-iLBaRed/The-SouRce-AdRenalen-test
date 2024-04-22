@@ -4,11 +4,12 @@ from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from iLBaReD import app
 import random
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, Message, User, ChatPrivileges, ReplyKeyboardRemove, CallbackQuery
+
+
 
 
 lisetanme = []  
-@Client.on_message(filters.command(["صور انمي", "صورة انمي", "صوره انمي", "انمي"], ""))
+@app.on_message(filters.command(["صور انمي", "صورة انمي", "صوره انمي", "انمي"], ""))
 async def sssora(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
     await joinch(message)
@@ -22,7 +23,7 @@ async def sssora(client, message):
   await message.reply_photo(photo=photo, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
 
 lisethazen = []  
-@Client.on_message(filters.command(["المزيد من الصور","صور حزينه"], ""))
+@app.on_message(filters.command(["المزيد من الصور","صور حزينه"], ""))
 async def soorr4(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
     await joinch(message)
@@ -36,7 +37,7 @@ async def soorr4(client, message):
   await message.reply_photo(photo=photo, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
   
 lisetbnat = []
-@Client.on_message(filters.command(["صور بنات", "صورة لبنت", "انمي بنات", "بنات","رمزيات بنات"], ""))
+@app.on_message(filters.command(["صور بنات", "صورة لبنت", "انمي بنات", "بنات","رمزيات بنات"], ""))
 async def soora4(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
     await joinch(message)
@@ -50,7 +51,7 @@ async def soora4(client, message):
   await message.reply_photo(photo=photo, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**") 
 
 listsoer = []  
-@Client.on_message(filters.command(["صور", "صوره", "صورة", "رمزيه", "رمزية", "رمزيات"], ""))
+@app.on_message(filters.command(["صور", "صوره", "صورة", "رمزيه", "رمزية", "رمزيات"], ""))
 async def sssor(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
     await joinch(message)
@@ -64,7 +65,7 @@ async def sssor(client, message):
   await message.reply_photo(photo=photo, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
   
 listmu = []
-@Client.on_message(filters.command(["اغاني", "غنيلي", "غ", "اغنيه","اغنية عشوائية"], ""))
+@app.on_message(filters.command(["اغاني", "غنيلي", "غ", "اغنيه","اغنية عشوائية"], ""))
 async def voece(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
     await joinch(message)
@@ -78,7 +79,7 @@ async def voece(client, message):
   await message.reply_audio(audio=audio, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
 
 listvid = []
-@Client.on_message(filters.command(["ستوري","استوري","حلات واتس"], ""))
+@app.on_message(filters.command(["ستوري","استوري","حلات واتس"], ""))
 async def videoo(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
     await joinch(message)
@@ -92,7 +93,7 @@ async def videoo(client, message):
   await message.reply_video(video=video, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
 
 listvidquran = []
-@Client.on_message(filters.command(["ستوري قران","استوري قران","حلات واتس قران"], ""))
+@app.on_message(filters.command(["ستوري قران","استوري قران","حلات واتس قران"], ""))
 async def qurann(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
     await joinch(message)
@@ -106,7 +107,7 @@ async def qurann(client, message):
   await message.reply_video(video=video, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
   
 listmuqurannn = []
-@Client.on_message(filters.command(["ق", "قران", "قران كريم", "سوره"], ""))
+@app.on_message(filters.command(["ق", "قران", "قران كريم", "سوره"], ""))
 async def qurann2(client, message):
   if not message.chat.type == enums.ChatType.PRIVATE:
     await joinch(message)
@@ -117,4 +118,4 @@ async def qurann2(client, message):
         listmuqurannn.append(msg.id)
   audi = random.choice(listmuqurannn)
   audio = f"https://t.me/alkoraan4000/{audi}"
-  await message.reply_audio(audio=audio, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")
+  await message.reply_audio(audio=audio, caption="**♪ 𝑱𝒐𝒊𝒏 ➧ @Elasyoutyyyy  💎 .**")                       )
