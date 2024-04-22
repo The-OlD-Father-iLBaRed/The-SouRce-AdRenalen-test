@@ -6,7 +6,7 @@ from iLBaReD import app
 import random
     
 
-@app.on_message(command([f"صوره", "صورة","‹ صوره ›"]))
+@app.on_message(command(["صوره","‹ صورة ›"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,60)
     url = f"https://t.me/vnnkli/{rl}"
@@ -23,7 +23,7 @@ reply_markup=InlineKeyboardMarkup(
 
 
 
-@app.on_message(command([f"استوريهات", "استوري", "استيت","‹ استوري ›"]))
+@app.on_message(command(["استوريهات", "استيت","‹ استوري ›"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,70)
     url = f"https://t.me/yoipopl{rl}"
@@ -39,7 +39,7 @@ reply_markup=InlineKeyboardMarkup(
                            )
 
 
-@app.on_message(command(["إنمي","انمي","‹ انمي ›"]))
+@app.on_message(command(["انمي","‹ إنمي ›"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,80)
     url = f"https://t.me/LoreBots7/{rl}"
@@ -56,7 +56,7 @@ async def ihd(client: Client, message: Message):
                            )
     
                                                               
-@app.on_message(command(["استيكر", "متحركه","‹ استيكر ›"]))
+@app.on_message(command(["استيكر","‹ جيف ›"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/GifWaTaN/{rl}"
@@ -75,7 +75,7 @@ async def ihd(client: Client, message: Message):
 
     
     
-@app.on_message(command(["افتار بنات","‹ افتار بنات ›"]))
+@app.on_message(command(["افتار بنات","‹ افتار بناتي ›"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(3,00)
     url = f"https://t.me/vvyuol/{rl}"
@@ -92,7 +92,7 @@ async def ihd(client: Client, message: Message):
                            )
     
                             
-@app.on_message(command(["افتار شباب","‹ افتار شباب ›"]))
+@app.on_message(command(["افتار شباب","‹ افتار شبابي ›"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(3,10)
     url = f"https://t.me/vgbmm/{rl}"
@@ -109,7 +109,7 @@ async def ihd(client: Client, message: Message):
                            )
     
                        
-@app.on_message(command(["النقشبندي","تواشيح","تواشيح النقشبندي","‹ النقشبندي ›"]))
+@app.on_message(command(["النقشبندي","‹ النقشبندي تواشيح ›"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(3,20)
     url = f"https://t.me/ggcnjj/{rl}"
