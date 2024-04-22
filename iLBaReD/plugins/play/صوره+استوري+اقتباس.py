@@ -23,7 +23,7 @@ reply_markup=InlineKeyboardMarkup(
 
 
                        
-@app.on_message(command(["النقشبندي","‹ النقشبندي تواشيح ›"]))
+@app.on_message(command(["النقشبندي","‹ النخشبندي تواشيح ›"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(2,51)
     url = f"https://t.me/ggcnjj/{rl}"
@@ -111,9 +111,11 @@ async def ihd(client: Client, message: Message):
                            )
 
 
-@app.on_message(command(["استيكر","‹ جيف ›"]))
+
+
+@app.on_message(command(["‹ جيف ›","استيكر"]))
 async def ihd(client: Client, message: Message):
-    rl = random.randint(2,56)
+    rl = random.randint(2,55)
     url = f"https://t.me/GifWaTaN/{rl}"
     await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
@@ -126,3 +128,4 @@ async def ihd(client: Client, message: Message):
             ]
         )
                            )
+
