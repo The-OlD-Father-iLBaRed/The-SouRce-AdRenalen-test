@@ -44,7 +44,7 @@ async def gef(client: Client, message: Message):
 async def stats(client: Client, message: Message):
     rl = random.randint(2,52)
     url = f"https://t.me/yoipopl{rl}"
-    await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    await message.reply_video(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
     reply_markup=InlineKeyboardMarkup(
             [
@@ -64,7 +64,7 @@ async def stats(client: Client, message: Message):
 async def elnaqsbnde(client: Client, message: Message):
     rl = random.randint(2,51)
     url = f"https://t.me/ggcnjj/{rl}"
-    await client.send_photo(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
+    await client.send_audio(message.chat.id,url,caption="- Join.Channel.SouRce : @WA_ADRENALEN ⋅",
     reply_to_message_id=message.id,
     reply_markup=InlineKeyboardMarkup(
             [
