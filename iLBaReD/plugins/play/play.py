@@ -54,7 +54,6 @@ async def play_commnd(
     url,
     fplay,
 ):
-    await AdRenalen_SubScRip(message):
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]
     )
