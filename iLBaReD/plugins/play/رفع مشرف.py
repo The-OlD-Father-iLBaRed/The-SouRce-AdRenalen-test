@@ -28,14 +28,6 @@ async def welcome(client, chat_member_updated):
         else:
             if kicked_by is not None:
                 message = f"منع التصفية التـلقائي 🛡️\n\n- المستخدم : [{kicked_by.first_name}](tg://user?id={kicked_by.id}) نزلته من قائمة الأدمنية\n- السبب : حاول تصفية مجموعتك وطرد العضو : [{user.first_name}](tg://user?id={user.id}",
-                reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "• ⌯ اضف البوت الي مجموعتك او قناتك ♥️ ⌯ •", url=f"https://t.me/{app.username}?startgroup=true"),
-            ]
-        ]
-         ),parse_mode=enums.ParseMode.MARKDOWN)
                 try:
                     await client.ban_chat_member(chat_member_updated.chat.id, kicked_by.id)
                 except Exception as e:
@@ -134,4 +126,4 @@ def promote_g_admin(client, message):
     for tom in tooom:
     	if tom.user.id == tom_id and (tom.status == enums.ChatMemberStatus.OWNER or tom.status == enums.ChatMemberStatus.ADMINISTRATOR):
     		client.promote_chat_member(chat_id, user_id, ToM)
-    		message.reply(f"- تم رفع العضو {user_id} صار مشرف ⋅")
+    		message.reply(f"- تم رفع العضو [{user.first_name}](tg://user?id={user.id} صار مشرف ⋅")
