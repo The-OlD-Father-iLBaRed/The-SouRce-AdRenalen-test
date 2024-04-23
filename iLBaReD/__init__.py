@@ -38,18 +38,18 @@ Resso = RessoAPI()
 SoundCloud = SoundAPI()
 Telegram = TeleAPI()
 
-async def joinch(message):
+async def AdRenalen_SubScRip(message):
     if not message.from_user: return
     try:
-            await message._client.get_chat_member("WA_AdRenalen", message.from_user.id)
+            await message._client.get_chat_member("WA_ADRENALEN", message.from_user.id)
     except UserNotParticipant:
                 await message.reply(
-                    f"🚦 يجب ان تشترك في القناة\n\nقنـاة الـبـوت : « https://t.me/WA_AdRenalen »",
+                    f"🚦 يجب ان تشترك في القناة\n\nقنـاة الـبـوت : « https://t.me/WA_ADRENALEN »",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("اضـغط هنا للأشتـراك القنـاة ", url=f"https://t.me/WA_AdRenalen"),
+                                InlineKeyboardButton("اضـغط هنا للأشتـراك القنـاة 🚦", url=f"https://t.me/WA_ADRENALEN"),
                             ],
                          ] 
                       ) 
@@ -57,4 +57,3 @@ async def joinch(message):
                 return True
     except:
         pass
-        
