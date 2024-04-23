@@ -1,10 +1,9 @@
 import random
 import string
-
+from iLBaReD.__init__ import (AdRenalen_SubScRip)
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
-
 import config
 from iLBaReD import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
 from iLBaReD.core.call import Omar
@@ -25,9 +24,7 @@ from iLBaReD.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
 
 @app.on_message(filters.command(["فديو","شغل","تشغيل"],""), 2277402)
-
-@app.on_message(
-    filters.command(
+@app.on_message(filters.command(
         [
             "play",
             "تشغيل",
@@ -45,6 +42,7 @@ from config import BANNED_USERS, lyrical
     
     & ~BANNED_USERS
 )
+if await AdRenalen_SubScRip(message):
 @PlayWrapper
 async def play_commnd(
     client,
