@@ -28,6 +28,15 @@ async def welcome(client, chat_member_updated):
         else:
             if kicked_by is not None:
                 message = f"منع التصفية التـلقائي 🛡️\n\n- المستخدم : [{kicked_by.first_name}](tg://user?id={kicked_by.id}) نزلته من قائمة الأدمنية\n- السبب : حاول تصفية مجموعتك وطرد العضو : [{user.first_name}](tg://user?id={user.id}",
+                reply_markup=InlineKeyboardMarkup(
+        [
+            [
+                    InlineKeyboardButton(
+                        "‹ 𝐂𝐇.𝐒𝐎𝐔𝐑𝐂𝐄 ›", url=f"http://t.me/WA_ADRENALEN"),
+            ]
+        ]                   
+
+         ),parse_mode=enums.ParseMode.MARKDOWN)
                 try:
                     await client.ban_chat_member(chat_member_updated.chat.id, kicked_by.id)
                 except Exception as e:
