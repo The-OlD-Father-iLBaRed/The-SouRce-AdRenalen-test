@@ -1,7 +1,7 @@
 from pyrogram import Client, filters, idle
 from config import OWNER_ID
-from iLBaReD.plugins.additions.pv_adrenalen import (is_served_user, add_served_user)
-from iLBaReD.plugins.additions.pv_adrenalen import (get_dev)
+from iLBaReD.plugins.play.pv_adrenalen import (is_served_user, add_served_user)
+from iLBaReD.plugins.play.pv_adrenalen import (get_dev)
 from iLBaReD.__init__ import (AdRenalen_SubScRip)
 from pyrogram.types import Message
 
