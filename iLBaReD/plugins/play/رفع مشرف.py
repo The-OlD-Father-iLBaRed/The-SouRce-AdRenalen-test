@@ -43,8 +43,7 @@ async def welcome(client, chat_member_updated):
                         "‹ اضف بوت السورس الي مجموعتك ⚡️🎸 ⋅ ›", url=f"http://t.me/Xx_MUOSIC_BOT?startgroup=new"),
             ]
         ]
-         ),
-        )
+         )
 
                 try:
                     await client.ban_chat_member(chat_member_updated.chat.id, kicked_by.id)
