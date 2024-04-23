@@ -36,7 +36,7 @@ async def welcome(client, chat_member_updated):
             ]
         ]                   
 
-         ),parse_mode=enums.ParseMode.MARKDOWN)
+                ),)
                 try:
                     await client.ban_chat_member(chat_member_updated.chat.id, kicked_by.id)
                 except Exception as e:
