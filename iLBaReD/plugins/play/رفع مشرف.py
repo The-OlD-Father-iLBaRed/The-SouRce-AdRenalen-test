@@ -2,6 +2,8 @@ from pyrogram import Client, filters
 from pyrogram import enums
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.enums import ChatMembersFilter, ChatMemberStatus , ChatType
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from pyrogram.types import ChatPermissions, ChatPrivileges
 from iLBaReD import app
 import asyncio
@@ -25,7 +27,15 @@ async def welcome(client, chat_member_updated):
             messagee = f"- المستخدم {user.username} ({user.first_name}) تم طرده من الدردشة بواسطة البوت 💘 ⋅"
         else:
             if kicked_by is not None:
-                message = f"منع التصفية التـلقائي 🛡️\n\n- المستخدم : [{kicked_by.first_name}](tg://user?id={kicked_by.id}) نزلته من قائمة الأدمنية\n- السبب : حاول تصفية مجموعتك وطرد العضو : [{user.first_name}](tg://user?id={user.id}",parse_mode=enums.ParseMode.MARKDOWN)
+                message = f"منع التصفية التـلقائي 🛡️\n\n- المستخدم : [{kicked_by.first_name}](tg://user?id={kicked_by.id}) نزلته من قائمة الأدمنية\n- السبب : حاول تصفية مجموعتك وطرد العضو : [{user.first_name}](tg://user?id={user.id}",
+                reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "• ⌯ اضف البوت الي مجموعتك او قناتك ♥️ ⌯ •", url=f"https://t.me/{app.username}?startgroup=true"),
+            ]
+        ]
+         ),parse_mode=enums.ParseMode.MARKDOWN)
                 try:
                     await client.ban_chat_member(chat_member_updated.chat.id, kicked_by.id)
                 except Exception as e:
