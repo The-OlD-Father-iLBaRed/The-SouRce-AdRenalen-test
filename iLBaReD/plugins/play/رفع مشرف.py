@@ -143,4 +143,4 @@ def promote_g_admin(client, message):
     for tom in tooom:
     	if tom.user.id == tom_id and (tom.status == enums.ChatMemberStatus.OWNER or tom.status == enums.ChatMemberStatus.ADMINISTRATOR):
     		client.promote_chat_member(chat_id, user_id, ToM)
-    		message.reply(f"- تم رفع العضو [{user.first_name}](tg://user?id={user.id} صار مشرف ⋅")
+    		message.reply(f"- تم رفع العضو {user.first_name}صار مشرف ⋅")
