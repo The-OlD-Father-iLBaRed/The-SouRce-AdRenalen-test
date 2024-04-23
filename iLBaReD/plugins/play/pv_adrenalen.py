@@ -1,5 +1,5 @@
 from pyrogram import Client, filters, idle
-from config import OWNER
+from config import OWNER_ID
 from iLBaReD.plugins.additions.pv_adrenalen import (is_served_user, add_served_user)
 from iLBaReD.plugins.additions.pv_adrenalen import (get_dev)
 from iLBaReD.__init__ import (AdRenalen_SubScRip)
@@ -12,7 +12,7 @@ OFFPV = []
 async def byyye(client, message):
     user = message.from_user.username
     dev = await get_dev(client.me.username)
-    if user in OWNER or message.from_user.id == dev:
+    if user in OWNER_ID or message.from_user.id == dev:
         text = message.text
         if text == "تفعيل التواصل":
           if not client.me.username in OFFPV:
@@ -44,7 +44,7 @@ async def botoot(client: Client, message: Message):
   if not await is_served_user(client, user_id):
      await add_served_user(client, user_id)
   dev = await get_dev(bot_username)
-  if message.from_user.id == dev or message.chat.username in OWNER or message.from_user.id == client.me.id:
+  if message.from_user.id == dev or message.chat.username in OWNER_ID or message.from_user.id == client.me.id:
     if message.reply_to_message:
      u = message.reply_to_message.forward_from
      try:
@@ -55,7 +55,7 @@ async def botoot(client: Client, message: Message):
   else:
    try:
     await client.forward_messages(dev, message.chat.id, message.id)
-    await client.forward_messages(OWNER[0], message.chat.id, message.id)
+    await client.forward_messages(OWNER_ID[0], message.chat.id, message.id)
    except Exception as e:
      pass
  message.continue_propagation()
