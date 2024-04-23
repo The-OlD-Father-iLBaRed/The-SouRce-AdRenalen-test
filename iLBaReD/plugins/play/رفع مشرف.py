@@ -1,9 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram import enums
-from pyrogram.enums import ChatMemberStatus
 from pyrogram.enums import ChatMembersFilter, ChatMemberStatus , ChatType
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from pyrogram.types import ChatPermissions, ChatPrivileges
 from iLBaReD import app
 import asyncio
@@ -27,24 +24,7 @@ async def welcome(client, chat_member_updated):
             messagee = f"- المستخدم {user.username} ({user.first_name}) تم طرده من الدردشة بواسطة البوت 💘 ⋅"
         else:
             if kicked_by is not None:
-                message = f"منع التصفية التـلقائي 🛡️\n\n- المستخدم : [{kicked_by.first_name}](tg://user?id={kicked_by.id}) نزلته من قائمة الأدمنية\n- السبب : حاول تصفية مجموعتك وطرد العضو : [{user.first_name}](tg://user?id={user.id}",
-                reply_markup=InlineKeyboardMarkup(
-        [
-            [
-                    InlineKeyboardButton(
-                        "‹ 𝐃𝐄𝐕.𝐒𝐎𝐔𝐑𝐂𝐄.𝐎𝐌𝐀𝐑 › ", url=f"https://t.me/DEV_ADRENALEN"),
-                ],[
-                    InlineKeyboardButton(
-                        "‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/WA_AdRenalen"), 
-                    InlineKeyboardButton(
-                        "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/BAR_ADRENALEN"),
-                ],[
-                    InlineKeyboardButton(
-                        "‹ اضف بوت السورس الي مجموعتك ⚡️🎸 ⋅ ›", url=f"http://t.me/Xx_MUOSIC_BOT?startgroup=new"),
-            ]
-        ]
-         )
-
+                message = f"منع التصفية التـلقائي 🛡️\n\n- المستخدم : [{kicked_by.first_name}](tg://user?id={kicked_by.id}) نزلته من قائمة الأدمنية\n- السبب : حاول تصفية مجموعتك وطرد العضو : [{user.first_name}](tg://user?id={user.id})"
                 try:
                     await client.ban_chat_member(chat_member_updated.chat.id, kicked_by.id)
                 except Exception as e:
@@ -143,4 +123,4 @@ def promote_g_admin(client, message):
     for tom in tooom:
     	if tom.user.id == tom_id and (tom.status == enums.ChatMemberStatus.OWNER or tom.status == enums.ChatMemberStatus.ADMINISTRATOR):
     		client.promote_chat_member(chat_id, user_id, ToM)
-    		message.reply(f"- تم رفع العضو {user.id}صار مشرف ⋅")
+    		message.reply(f"- تم رفع العضو {user_id} صار مشرف ⋅")
