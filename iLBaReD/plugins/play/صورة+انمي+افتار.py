@@ -125,7 +125,7 @@ async def soraa(client, message):
                            )
                                                       
 
-@app.on_message(command(["النقشبندي","‹ النقشبندي تواشيح ›"]))
+@app.on_message(command(["النقشبندي","‹ تواشيح النقشبندي ›"]))
 async def soraa(client, message): 
     rl = random.randint(2,57)
     audio = f"https://t.me/ggcnjj/{rl}"
