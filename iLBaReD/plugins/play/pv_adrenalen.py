@@ -65,7 +65,7 @@ async def botoot(client: Client, message: Message):
  
  
  
-    async def is_served_user(client, user_id: int) -> bool:
+async def is_served_user(client, user_id: int) -> bool:
     userdb = await get_data(client)
     userdb = userdb.users
     user = await userdb.find_one({"user_id": user_id})
@@ -73,7 +73,7 @@ async def botoot(client: Client, message: Message):
         return False
     return True
     
-    async def add_served_user(client, user_id: int):
+async def add_served_user(client, user_id: int):
     userdb = await get_data(client)
     userdb = userdb.users
     is_served = await is_served_user(client, user_id)
@@ -81,7 +81,7 @@ async def botoot(client: Client, message: Message):
         return
     return await userdb.insert_one({"user_id": user_id})
     
-    async def del_served_user(client, user_id: int):
+async def del_served_user(client, user_id: int):
     chats = await get_data(client)
     chatsdb = chats.users
     is_served = await is_served_user(client, user_id)
@@ -89,7 +89,7 @@ async def botoot(client: Client, message: Message):
         return
     return await chatsdb.delete_one({"user_id": user_id})
     
-    async def get_dev(bot_username):
+async def get_dev(bot_username):
   devv = dev.get(bot_username)
   if not devv:
    Bots = botss.find({})
