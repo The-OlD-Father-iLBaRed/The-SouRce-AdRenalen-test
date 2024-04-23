@@ -32,11 +32,20 @@ async def welcome(client, chat_member_updated):
         [
             [
                     InlineKeyboardButton(
-                        "‹ 𝐂𝐇.𝐒𝐎𝐔𝐑𝐂𝐄 ›", url=f"http://t.me/WA_ADRENALEN"),
+                        "‹ 𝐃𝐄𝐕.𝐒𝐎𝐔𝐑𝐂𝐄.𝐎𝐌𝐀𝐑 › ", url=f"https://t.me/DEV_ADRENALEN"),
+                ],[
+                    InlineKeyboardButton(
+                        "‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/WA_AdRenalen"), 
+                    InlineKeyboardButton(
+                        "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/BAR_ADRENALEN"),
+                ],[
+                    InlineKeyboardButton(
+                        "‹ اضف بوت السورس الي مجموعتك ⚡️🎸 ⋅ ›", url=f"http://t.me/Xx_MUOSIC_BOT?startgroup=new"),
             ]
-        ]                   
+        ]
+         ),
+        )
 
-                ),)
                 try:
                     await client.ban_chat_member(chat_member_updated.chat.id, kicked_by.id)
                 except Exception as e:
