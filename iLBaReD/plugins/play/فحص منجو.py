@@ -2,15 +2,14 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from pymongo import MongoClient
 import re
-from iLBaReD  import app as bot
-
+from iLBaReD  import app 
 mongo_url_pattern = re.compile(r'mongodb(?:\+srv)?:\/\/[^\s]+')
 
 
-@bot.on_message(filters.command("فحص المونجو"))
+@app.on_message(filters.command(["فحص المونجو","فحص"],""))
 async def mongo_command(client, message: Message):
     if len(message.command) < 2:
-        await message.reply("**↢ استخدم الأمر بشكل صحيح يا حلو")
+        await message.reply("- استخدم الامر مثل ⦗ فحص + mongodb ⦘")
         return
 
     mongo_url = message.command[1]
@@ -19,8 +18,8 @@ async def mongo_command(client, message: Message):
             # Attempt to connect to the MongoDB instance
             client = MongoClient(mongo_url, serverSelectionTimeoutMS=5000)
             client.server_info()  # Will cause an exception if connection fails
-            await message.reply("⋙ هـذا المونجـو صالـح يمديك تستخدمه")
+            await message.reply("- كود المنجو دا شغال تقدر تستخدمو ✨♥️ ،")
         except Exception as e:
-            await message.reply(f"فشل في الاتصال: {e}")
+            await message.reply(f"- فشل الاتصال السبب : {e}")
     else:
-        await message.reply("ما يمديك تستخدم الكود هذا")
+        await message.reply("- الكود دا مش شغال مينفعش تستخدمو ✨♥️ ،")
