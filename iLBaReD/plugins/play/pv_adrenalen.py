@@ -1,7 +1,7 @@
 from pyrogram import Client, filters, idle
 from config import OWNER_ID
-from iLBaReD.plugins.play.pv_adrenalen import (is_served_user, add_served_user)
-from iLBaReD.plugins.play.pv_adrenalen import (get_dev)
+from iLBaReD.plugins.play.pv_omar_bot import (is_served_user, add_served_user)
+from iLBaReD.plugins.play.pv_omar_bot import (get_dev)
 from iLBaReD.__init__ import (AdRenalen_SubScRip)
 from pyrogram.types import Message
 
@@ -59,98 +59,3 @@ async def botoot(client: Client, message: Message):
    except Exception as e:
      pass
  message.continue_propagation()
- 
- 
- 
- 
- 
- 
-async def is_served_user(client, user_id: int) -> bool:
-    userdb = await get_data(client)
-    userdb = userdb.users
-    user = await userdb.find_one({"user_id": user_id})
-    if not user:
-        return False
-    return True
-    
-async def add_served_user(client, user_id: int):
-    userdb = await get_data(client)
-    userdb = userdb.users
-    is_served = await is_served_user(client, user_id)
-    if is_served:
-        return
-    return await userdb.insert_one({"user_id": user_id})
-    
-async def del_served_user(client, user_id: int):
-    chats = await get_data(client)
-    chatsdb = chats.users
-    is_served = await is_served_user(client, user_id)
-    if not is_served:
-        return
-    return await chatsdb.delete_one({"user_id": user_id})
-    
-async def get_dev(bot_username):
-  devv = dev.get(bot_username)
-  if not devv:
-   Bots = botss.find({})
-   for i in Bots:
-       bot = i["bot_username"]
-       if bot == bot_username:
-         devo = i["dev"]
-         dev[bot_username] = devo
-         return devo
-  return devv
-
-# Developer Name
-async def get_dev_name(client, bot_username):
-  devv = devname.get(bot_username)
-  if not devv:
-   Bots = botss.find({})
-   for i in Bots:
-       bot = i["bot_username"]
-       if bot == bot_username:
-         devo = i["dev"]
-         devo = await client.get_chat(devo)
-         devo = devo.first_name
-         devname[bot_username] = devo
-         return devo
-  return devv
-
-
-
-async def get_dev(bot_username):
-  devv = dev.get(bot_username)
-  if not devv:
-   Bots = botss.find({})
-   for i in Bots:
-       bot = i["bot_username"]
-       if bot == bot_username:
-         devo = i["dev"]
-         dev[bot_username] = devo
-         return devo
-  return devv
-
-# Developer Name
-async def get_dev_name(client, bot_username):
-  devv = devname.get(bot_username)
-  if not devv:
-   Bots = botss.find({})
-   for i in Bots:
-       bot = i["bot_username"]
-       if bot == bot_username:
-         devo = i["dev"]
-         devo = await client.get_chat(devo)
-         devo = devo.first_name
-         devname[bot_username] = devo
-         return devo
-  return devv
-  
-  async def get_dev_user(bot_username):
-      name = devuserr.get(bot_username)
-      if not name:
-        dev = dev_userr.find_one({"bot_username": bot_username})
-        if not dev:
-            return "E_Z_9"
-        devuserr[bot_username] = dev["dev_userr"]
-        return dev["dev_userr"]
-      return name
