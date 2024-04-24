@@ -57,7 +57,7 @@ async def unblock_stickers(client:Client, message:Message):
 async def delete_stickers(client:Client, message:Message):
     if message.chat.id in stiklok:
         await message.delete()
-        await message.reply(f"لا يمكنك ارسال الملصقات هنا 😋♥️ ،[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
+        await message.reply(f"لا يمكنك ارسال الملصقات هنا 😋♥️ ،[{message.from_user.first_name}](tg://user?id={message.from_user.id}"f")"
 @app.on_message(filters.command(["عمر","مطور السورس","مطور","المطور","ادرنالين","ادرينالين"], ""), group=666)
 async def kas(client: Client, message: Message):
     usr = await client.get_chat(OWNER_ID)
