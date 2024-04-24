@@ -19,6 +19,7 @@ from iLBaReD import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from iLBaReD import app
 from telegraph import upload_file
 from asyncio import gather
+from os import getenv
 from pyrogram.errors import FloodWait
 
 OWNER_ID = getenv("OWNER_ID")
