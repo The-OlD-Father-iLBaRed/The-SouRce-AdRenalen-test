@@ -52,35 +52,3 @@ async def unblock_stickers(client:Client, message:Message):
         return await message.reply_text(f"تم فتح الملصقات \n\n من قبل ←{message.from_user.mention}")
     else:
         return await message.reply_text(f"يا {message.from_user.mention} انت لست مشرفا")
-
-@app.on_message(filters.sticker)
-async def delete_stickers(client:Client, message:Message):
-    if message.chat.id in stiklok:
-        await message.delete()
-        await message.reply("لا يمكنك ارسال الملصقات هنا 😋♥️ ، [{m.from_user.first_name}](tg://user?id={m.from_user.id}) ")
-@app.on_message(filters.command(["عمر","مطور السورس","مطور","المطور","ادرنالين","ادرينالين"], ""), group=666)
-async def kas(client: Client, message: Message):
-    usr = await client.get_chat(OWNER_ID)
-    name = usr.first_name
-    bio = usr.bio
-    id = usr.id
-    photo = await app.download_media(usr.photo.big_file_id)
-    await message.reply_photo(photo,       
-    caption=f"-᚜ - الاسم » ⦗ {name} ⦘ 💘 ⋅\n-᚜ - اليوزر » ⦗ @{usr.username} ⦘ 💘 ⋅\n-᚜ - الايدي » ⦗ {usr.id} ⦘ 💘 ⋅\n-᚜ - البايو » ⦗ {usr.bio} ⦘ 💘 ⋅", 
-    reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        name, url=f"https://t.me/{usr.username}")
-                ],[
-                    InlineKeyboardButton(
-                        "‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/WA_AdRenalen")
-                ]
-            ]
-        ),
-    )
-    
-    sender_id = message.from_user.id
-    sender_name = message.from_user.first_name
-    await app.send_message(OWNER_ID, f"الواد {message.from_user.mention} دا بينادي عليك \n\n الايدي بتاعه : {sender_id} \n\n اسمه : {sender_name}")
-    return await app.send_message(config.OWNER_ID, f"الواد {message.from_user.mention} دا بينادي عليك \n\n الايدي بتاعه : {sender_id} \n\n اسمه : {sender_name}")
