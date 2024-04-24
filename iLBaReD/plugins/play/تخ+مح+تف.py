@@ -33,7 +33,7 @@ async def Katl(client: Client, message: Message):
 
 @app.on_message(command(["اموه","مح","بوسه","بوثه"]))
 async def bosa(client: Client, message: Message):
-    if await AdRenalen_SubScRip(message):
+if await AdRenalen_SubScRip(message):
     # آيدي الشخص الذي عمل عليه رد الريبلي
     replied_user_id = message.reply_to_message.from_user.id
     replied_user_name = message.reply_to_message.from_user.first_name
