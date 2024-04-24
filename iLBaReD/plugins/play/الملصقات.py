@@ -35,4 +35,4 @@ async def unblock_stickers(client:Client, message:Message):
 async def delete_stickers(client:Client, message:Message):
     if message.chat.id in stiklok:
         await message.delete()
-        await message.reply("لا يمكنك ارسال الملصقات هنا 😋♥️ ،")
+        await message.reply("لا يمكنك ارسال الملصقات هنا 😋♥️ ، يا  {message.from_user.mention}")
