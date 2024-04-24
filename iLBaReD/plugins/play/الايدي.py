@@ -90,7 +90,7 @@ async def heart(client, query: CallbackQuery):
     
     idd = len(id[user.id])
     
-    caption = f"𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐍𝐄𝐌 » ⦗ {query.message.chat.title} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐍𝐄𝐌 » ⦗ {user.first_name} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐔𝐒𝐄𝐑 𝐍𝐄𝐌 » ⦗ @{user.username} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐁𝐈𝐎 » ⦗ {user.bio} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐈𝐃 » ⦗ {user_id} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐈𝐃 » ⦗ {chat_id} ⦘ 🕷 ⋅"
+    caption = f"𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐍𝐄𝐌 » ⦗ {query.message.chat.title} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐍𝐄𝐌 » ⦗ {user.first_name} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐔𝐒𝐄𝐑 𝐍𝐄𝐌 » ⦗ @{user.username} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐁𝐈𝐎 » ⦗ {user.bio} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐈𝐃 » ⦗ {user_id} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐈𝐃 » ⦗ {query.message.chat.id} ⦘ 🕷 ⋅"
     
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ♥️", callback_data=f"heart{user_id}")]])
     
