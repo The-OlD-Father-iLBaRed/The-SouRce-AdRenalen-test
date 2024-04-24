@@ -67,8 +67,7 @@ async def muid(client: Client, message):
     
     idd = len(id[user.id])
     
-    caption = f"𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐍𝐄𝐌 » ⦗ {chat} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐍𝐄𝐌 » ⦗ {first_name} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐔𝐒𝐄𝐑 𝐍𝐄𝐌 » ⦗ [@{username] ⦘ 🕷 ⋅\n𝅄 𓏺 𝐁𝐈𝐎 » ⦗ {bio} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐈𝐃 » ⦗ {user_id} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐈𝐃 » ⦗ {chat_id} ⦘ 🕷 ⋅"
-    
+    caption = f"┇‌ ⤹•ɴᴀᴍᴇ : {first_name}\n┇‌ ⤹•ᴜsᴇʀ : @{username}\n┇‌ ═══════『♡』═══════\n┇‌ ⤹•ɪᴅ : {user_id}\n┇‌ ⤹•ʙɪᴏ : {bio}\n┇‌═══════『♡』═══════\n┇‌ ⤹•ᴄʜᴀᴛ : {chat}\n┇‌ ⤹•ᴄʜᴀᴛ ɪᴅ : {chat_id}"    
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ♥️", callback_data=f"heart{user_id}")]])
    
     await message.reply_photo(photo=photo, caption=caption, reply_markup=reply_markup)
@@ -90,8 +89,7 @@ async def heart(client, query: CallbackQuery):
     
     idd = len(id[user.id])
     
-    caption = f"𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐍𝐄𝐌 » ⦗ {query.message.chat.title} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐍𝐄𝐌 » ⦗ {user.first_name} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐔𝐒𝐄𝐑 𝐍𝐄𝐌 » ⦗ @{user.username} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐁𝐈𝐎 » ⦗ {user.bio} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐈𝐃 » ⦗ {user_id} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐈𝐃 » ⦗ {query.message.chat.id} ⦘ 🕷 ⋅"
-    
+    caption = f"┇‌ ⤹•ɴᴀᴍᴇ : {user.first_name}\n┇‌ ⤹•ᴜsᴇʀ : @{user.username}\n┇‌ ═══════『♡』═══════\n┇‌ ⤹•ɪᴅ : {user_id}\n┇‌ ⤹•ʙɪᴏ : {user.bio}\n┇‌═══════『♡』═══════\n┇‌ ⤹•ᴄʜᴀᴛ : {query.message.chat.title}\n┇‌ ⤹•ᴄʜᴀᴛ ɪᴅ : {query.message.chat.id}"    
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ♥️", callback_data=f"heart{user_id}")]])
     
     await query.edit_message_text(caption, reply_markup=reply_markup)
