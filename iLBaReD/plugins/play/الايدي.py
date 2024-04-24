@@ -68,6 +68,7 @@ async def muid(client: Client, message):
     idd = len(id[user.id])
     
     caption = f"𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐍𝐄𝐌 » ⦗ {chat} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐍𝐄𝐌 » ⦗ {first_name} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐔𝐒𝐄𝐑 𝐍𝐄𝐌 » ⦗ [@{username] ⦘ 🕷 ⋅\n𝅄 𓏺 𝐁𝐈𝐎 » ⦗ {bio} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐈𝐃 » ⦗ {user_id} ⦘ 🕷 ⋅\n𝅄 𓏺 𝐂𝐇𝐀𝐓 𝐈𝐃 » ⦗ {chat_id} ⦘ 🕷 ⋅"
+    
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ♥️", callback_data=f"heart{user_id}")]])
    
     await message.reply_photo(photo=photo, caption=caption, reply_markup=reply_markup)
