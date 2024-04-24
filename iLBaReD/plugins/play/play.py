@@ -1,6 +1,5 @@
 import random
 import string
-from iLBaReD.__init__ import (AdRenalen_SubScRip)
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
