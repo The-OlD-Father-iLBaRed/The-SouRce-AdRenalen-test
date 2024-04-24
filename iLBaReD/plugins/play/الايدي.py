@@ -11,8 +11,8 @@ from pyrogram import filters
 from pyrogram import Client
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from iLBaReD import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
-from iLBaReD import app
+from AdRenalen import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from AdRenalen import app
 from telegraph import upload_file
 from asyncio import gather
 from pyrogram.errors import FloodWait
@@ -67,8 +67,8 @@ async def muid(client: Client, message):
     
     idd = len(id[user.id])
     
-    caption = f"🤡 ¦𝙽𝙰𝙼𝙴 :{user.first_name}\n🎯 ¦𝚄𝚂𝙴𝚁 :@{username}\n🎃 ¦𝙸𝙳 :{user_id}\n💌 ¦𝙱𝙸𝙾 :{bio}\n✨ ¦𝙲𝙷𝙰𝚃: {chat}\n♻️ ¦𝙸𝙳.𝙲𝙷𝙰𝚃 :{chat_id}"
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ♥️",callback_data=f"heart{user_id}")]])
+    caption = f"name : {first_name}\nid : {user_id}\nuser : [@{username}]\nbio : {bio}"
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} 🤍", callback_data=f"heart{user_id}")]])
     
     await message.reply_photo(photo=photo, caption=caption, reply_markup=reply_markup)
 
@@ -84,12 +84,11 @@ async def heart(client, query: CallbackQuery):
     
     if query.from_user.mention not in id[user.id]:
         id[user.id].append(query.from_user.mention)
-    else:
-        id[user.id].remove(query.from_user.mention)
+    await query.answer("already voted",show_alert=True)
     
     idd = len(id[user.id])
     
-    caption = f"🤡 ¦𝙽𝙰𝙼𝙴 :{user.first_name}\n🎯 ¦𝚄𝚂𝙴𝚁 :@{username}\n🎃 ¦𝙸𝙳 :{user_id}\n💌 ¦𝙱𝙸𝙾 :{bio}\n✨ ¦𝙲𝙷𝙰𝚃: {chat}\n♻️ ¦𝙸𝙳.𝙲𝙷𝙰𝚃 :{chat_id}"
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ♥️",callback_data=f"heart{user_id}")]])
+    caption = f"name : {first_name}\nid : {user_id}\nuser : [@{username}]\nbio : {bioo}"
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} 🤍", callback_data=f"heart{user_id}")]])
     
     await query.edit_message_text(caption, reply_markup=reply_markup)
