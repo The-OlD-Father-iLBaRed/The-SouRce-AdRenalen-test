@@ -1,4 +1,4 @@
-#Omar AdRenalen تم التعديل بواسطة 🎸 ⋅
+ #Omar AdRenalen تم التعديل بواسطة 🎸 ⋅
 import asyncio
 from asyncio import gather
 from pyrogram import Client, filters
@@ -58,7 +58,7 @@ async def delete_stickers(client:Client, message:Message):
     if message.chat.id in stiklok:
         await message.delete()
         await message.reply(f"لا يمكنك ارسال الملصقات هنا 😋♥️ ،[{message.from_user.first_name}](tg://user?id={message.from_user.id}"f")",
-        reply_to_message_id=m.message_id,
+        reply_to_message_id=message.message_id,
         parse_mode="Markdown")
         return
 
