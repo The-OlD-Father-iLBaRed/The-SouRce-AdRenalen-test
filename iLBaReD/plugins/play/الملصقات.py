@@ -67,8 +67,8 @@ async def delete_stickers(client:Client, message:Message):
 async def kas(client: Client, message: Message):
     usr = await client.get_chat(OWNER_ID)
     name = usr.first_name
-    bio = usrr.bio
-    id = usrr.id
+    bio = usr.bio
+    id = usr.id
     photo = await app.download_media(usr.photo.big_file_id)
     await message.reply_photo(photo,       
     caption=f"-᚜ - الاسم » ⦗ {name} ⦘ 💘 ⋅\n-᚜ - اليوزر » ⦗ @{usr.username} ⦘ 💘 ⋅\n-᚜ - الايدي » ⦗ {usr.id} ⦘ 💘 ⋅\n-᚜ - البايو » ⦗ {usr.bio} ⦘ 💘 ⋅", 
