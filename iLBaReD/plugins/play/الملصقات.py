@@ -1,3 +1,4 @@
+python|
 from iLBaReD import app
 from pyrogram import enums
 from pyrogram import Client
@@ -38,7 +39,7 @@ async def unblock_stickers(client:Client, message:Message):
 async def delete_stickers(client:Client, message:Message):
     if message.chat.id in stiklok:
         await message.delete()
-        await message.reply("لا يمكنك ارسال الملصقات هنا 😋♥️ ،")
+        await message.reply(f"لا يمكنك ارسال الملصقات هنا 😋♥️ ، {message.from_user.mention}")
 
  ##############
 @app.on_message(command(["تخ","بيو"]))
