@@ -11,15 +11,15 @@ mutes = []
 @app.on_message(filters.command(["كتم"],"") & filters.group)
 async def mute(app,message):
    member = await message.chat.get_member(message.from_user.id)
+   if message.reply_to_message.from_user.id == 1924832439:
+        await message.reply("لا يمكنك كتم مطور السورس ي غبي 😋♥️ ،")
    if not member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
      return await message.reply("- يجب ان تكون مشرفا لكتم الاعضاء 💘 ⋅")
    else:
      if not message.reply_to_message:
        return await message.reply("- عليك الرد علي مستخدم وان يكون عضو ليس مشرف 💘 ⋅")
-     member = await message.chat.get_member(message.reply_to_message.from_user.id)
-     if message.reply_to_message.from_user.id == 1924832439:
-        await message.reply("لا يمكنك كتم مطور السورس ي غبي 😋♥️ ،")
-     elif member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+     member = await message.chat.get_member(message.reply_to_message.from_user.id) 
+   if member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
        return await message.reply("- لا يمكنني كتم المشرفين 💘 ⋅")
      chat_id = str(message.chat.id)
      user_id = str(message.reply_to_message.from_user.id)
