@@ -1,32 +1,16 @@
- #Omar AdRenalen تم التعديل بواسطة 🎸 ⋅
-import asyncio
-from asyncio import gather
-from pyrogram import Client, filters
-from pyrogram import filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-import os
-import time
-import requests
-from pyrogram import enums
-from pyrogram import types
-import aiohttp
-from pyrogram.types import CallbackQuery
-from pyrogram import filters
-from pyrogram import Client
-from pyrogram.enums import ChatMemberStatus
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from iLBaReD import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from iLBaReD import app
-from telegraph import upload_file
-from asyncio import gather
-from pyrogram.errors import FloodWait
-
+from pyrogram import enums
+from pyrogram import Client
+from strings.filters import command
+import asyncio
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from strings.filters import command
+from iLBaReD import app
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from pyrogram.enums import ChatMemberStatus
 
 stiklok = []
-photos_lock = []
-forward_lock = []
-link_lock = []
-mention_lock = []
 
 @app.on_message(filters.command(["قفل الملصقات","تعطيل الملصقات"],""))
 async def block_stickers(client:Client, message:Message):
@@ -49,3 +33,35 @@ async def unblock_stickers(client:Client, message:Message):
         return await message.reply_text(f"تم فتح الملصقات \n\n من قبل ←{message.from_user.mention}")
     else:
         return await message.reply_text(f"يا {message.from_user.mention} انت لست مشرفا")
+
+@app.on_message(filters.sticker)
+async def delete_stickers(client:Client, message:Message):
+    if message.chat.id in stiklok:
+        await message.delete()
+        await message.reply("لا يمكنك ارسال الملصقات هنا 😋♥️ ،")
+
+ ##############
+@app.on_message(command(["تخ","بيو"]))
+async def Katl(client: Client, message: Message):
+    if message.reply_to_message.from_user.id == 1924832439:
+        await message.reply("لا يمكنك قتل مطور السورس ي غبي 😋♥️ ،")
+    else:
+        # آيدي الشخص الذي عمل عليه رد الريبلي
+        replied_user_id = message.reply_to_message.from_user.id
+        replied_user_name = message.reply_to_message.from_user.first_name
+        # آيدي الشخص الذي قام بإرسال رد الريبلي
+        killer_id = message.from_user.id
+        killer_name = message.from_user.first_name
+        await message.reply_video(
+            video=f"https://telegra.ph/file/5a18fe591860a8a98f39f.mp4",
+            caption=f"- القاتل المفتري » ⦗ {killer_name} (tg://user?id={killer_id}) ⦘\n- المقتول بمسدس مايه » ⦗ {replied_user_name} (tg://user?id={replied_user_id}) ⦘ \nانا لله وانا اليه راجعون الواد مات بمسدس لعبه 😂!",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "- ضفني في جروبك يرايق 😋♥️ ،", url=f"https://t.me/{app.username}?startgroup=true"),
+                    ],
+                ]
+            ),
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
