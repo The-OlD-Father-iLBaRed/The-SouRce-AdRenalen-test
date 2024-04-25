@@ -2,6 +2,7 @@ from pyrogram.enums import ParseMode
 from iLBaReD import app
 from strings.filters import command
 from iLBaReD.utils.database import is_on_off
+from pyrogram import filters
 from config import OWNER_ID
 
 
@@ -32,7 +33,7 @@ async def play_logs(message, streamtype):
         return
 
 
-@app.on_message(filters.command(["صلاحياتي"], ""))
+@app.on_message(filters.command(["صلاحياتي"], ""), group=221213)
 async def caesarprivileges(client, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
