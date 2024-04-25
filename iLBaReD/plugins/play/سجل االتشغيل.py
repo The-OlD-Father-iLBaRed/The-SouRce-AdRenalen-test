@@ -1,6 +1,7 @@
 from pyrogram.enums import ParseMode
 from iLBaReD import app
 from strings.filters import command
+from pyrogram.enums import ChatMemberStatus
 from iLBaReD.utils.database import is_on_off
 from pyrogram import filters
 from config import OWNER_ID
