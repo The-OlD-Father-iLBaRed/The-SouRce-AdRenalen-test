@@ -1,4 +1,3 @@
-python|
 from iLBaReD import app
 from pyrogram import enums
 from pyrogram import Client
