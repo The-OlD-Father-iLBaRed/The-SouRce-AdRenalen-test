@@ -54,8 +54,8 @@ async def Katl(client: Client, message: Message):
         killer_name = message.from_user.first_name
         await message.reply_video(
             video=f"https://telegra.ph/file/5a18fe591860a8a98f39f.mp4",
-            caption=f"- القاتل المفتري » ⦗ {killer_name} (tg://user?id={killer_id}) ⦘\n- المقتول بمسدس مايه » ⦗ {replied_user_name} (tg://user?id={replied_user_id}) ⦘ \nانا لله وانا اليه راجعون الواد مات بمسدس لعبه 😂!",
-            reply_markup=InlineKeyboardMarkup(
+        caption=f"- القاتل المفتري » ⦗ [{killer_name}](tg://user?id={killer_id}) ⦘\n- المقتول بمسدس مايه » ⦗ [{replied_user_name}](tg://user?id={replied_user_id}) ⦘ \nانا لله وانا اليه راجعون الواد مات بمسدس لعبه 😂!",
+        reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
