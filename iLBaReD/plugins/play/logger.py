@@ -9,15 +9,18 @@ from iLBaReD import app
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
+
+
+
  ##############
 @app.on_message(command(["تخ","بيو"]))
 async def Katl(client: Client, message: Message):
     if message.reply_to_message.from_user.id == 1924832439:
         await message.reply("لا يمكنك قتل مطور السورس ي غبي 😋♥️ ،")
- elif message.reply_to_message.from_user.id == message.from_user.id:
-  await message.reply("لا يمكنك قتل نفسك")
- elif message.reply_to_message.from_user.id == app.id:
-  await message.reply("لا يمكنك قتل البوت")
+    elif message.reply_to_message.from_user.id == message.from_user.id:
+        await message.reply("لا يمكنك قتل نفسك")
+    elif message.reply_to_message.from_user.id == app.id:
+        await message.reply("لا يمكنك قتل البوت")
     else:
         # آيدي الشخص الذي عمل عليه رد الريبلي
         replied_user_id = message.reply_to_message.from_user.id
