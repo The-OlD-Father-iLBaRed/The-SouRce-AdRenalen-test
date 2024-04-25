@@ -11,15 +11,14 @@ mutes = []
 @app.on_message(filters.command(["كتم"],"") & filters.group)
 async def mute(app,message):
    member = await message.chat.get_member(message.from_user.id)
-   if not member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+      if member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER_ID]:
      return await message.reply("- يجب ان تكون مشرفا لكتم الاعضاء 💘 ⋅")
    else:
      if not message.reply_to_message:
        return await message.reply("- عليك الرد علي مستخدم وان يكون عضو ليس مشرف 💘 ⋅")
-     member = await message.chat.get_member(message.reply_to_message.from_user.id) 
-   if member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER_ID]:
-       return await message.reply("- لا يمكنني كتم المشرفينولا مطورين السورس 
-💘 ⋅")
+     member = await message.chat.get_member(message.reply_to_message.from_user.id)
+     if member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+       return await message.reply("- لا يمكنني كتم المشرفين 💘 ⋅")
      chat_id = str(message.chat.id)
      user_id = str(message.reply_to_message.from_user.id)
      x = "{}@{}".format(chat_id,user_id)
@@ -34,7 +33,7 @@ async def mute(app,message):
 @app.on_message(filters.command(["الغاء الكتم"],"") & filters.group)
 async def unmute(app,message):
    member = await message.chat.get_member(message.from_user.id)
-   if not member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+      if member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER_ID]:
      return await message.reply("- هذا الامر للمشرفين فقط 💘 ⋅")
    else:
      if not message.reply_to_message:
@@ -55,7 +54,7 @@ async def unmute(app,message):
 def get_dmute(app, message):
    if len(mutes) == 0: return
    member = message.chat.get_member(message.from_user.id)
-   if not member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+      if member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER_ID]:
      return message.reply("- هذا الامر للمشرفين فقط 💘 ⋅")
    ch = message.chat.id
    c = 0
