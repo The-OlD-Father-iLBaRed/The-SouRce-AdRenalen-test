@@ -1,5 +1,6 @@
 from pyrogram.enums import ParseMode
 from iLBaReD import app
+from strings.filters import command
 from iLBaReD.utils.database import is_on_off
 from config import OWNER_ID
 
