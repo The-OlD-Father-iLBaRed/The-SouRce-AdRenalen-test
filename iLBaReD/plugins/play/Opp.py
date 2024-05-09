@@ -1,5 +1,6 @@
 import asyncio
 from pyrogram import Client, filters
+from pyrogram.enums import ChatMemberStatus
 from random import choice
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMarkup, Message)
