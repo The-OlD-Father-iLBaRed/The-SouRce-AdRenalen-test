@@ -18,7 +18,7 @@ from iLBaReD.utils.inline import (
     slider_markup,
     track_markup,
 )
-from iLBaReD.utils.logger import play_logs
+from iLBaReD.plugins.play.logger import play_logs
 from iLBaReD.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
 
