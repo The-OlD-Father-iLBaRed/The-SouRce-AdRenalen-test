@@ -35,7 +35,7 @@ async def iddopen(client: Client, message):
     else:
         return await message.reply_text("عذرا عزيزي هذا الامر للمشرفين بس 😋♥️ ،")
 
-@app.on_message(filters.command(["ايدي"], ""))
+@app.on_message(filters.command(["صورتي","ص"], ""))
 async def muid(client: Client, message):
     if message.chat.id in stayle_pic:
         return await message.reply_text("صورتي معطل اطلب من المشرفين تفتحه 😋♥️ ،")
