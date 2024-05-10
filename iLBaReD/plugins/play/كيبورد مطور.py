@@ -1,17 +1,16 @@
 import asyncio
-from SniperMusic.plugins.play.xgame import callback_query
 import config
 from pyrogram import Client, filters
 from pyrogram import filters
 from strings.filters import command
-from SniperMusic import app
+from iLBaReD import app
 from config import OWNER_ID
-from SniperMusic.misc import SUDOERS
+from iLBaReD.misc import SUDOERS
 from strings.filters import command
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyKeyboardMarkup
 from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMarkup, Message)
-from SniperMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
-from SniperMusic.misc import SUDOERS
+from iLBaReD import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from iLBaReD.misc import SUDOERS
 import sys
 from dotenv import load_dotenv
 import re
