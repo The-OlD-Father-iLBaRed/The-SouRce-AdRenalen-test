@@ -1,6 +1,6 @@
 import asyncio
 import random
- from pyrogram import enums
+from pyrogram import enums
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from iLBaReD import app
@@ -9,7 +9,7 @@ from iLBaReD.utils.database import get_served_chats
 
 START_IMG_URL = "https://telegra.ph/file/0677e881a84925cb9c789.jpg"
 
-MESSAGE = f"• ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ •\n\n- اقوي بوت ميوزك قنوات و جروبات سرعه وجوده خارقه😋♥️ ،\n\n- بدون تهنيج او تقطيع او توقف مع مميزات رائعة 😋♥️ ،\n\n- كل ما عليك رفع البوت ادمن فقناتك او مجموعتك واستمتع 😋♥️ ،\n[• ⌯ 𝐃𝐄𝐕.𝐒𝐎𝐔𝐑𝐂𝐄.𝐎𝐌𝐀𝐑 ⌯ •](https://t.me/DEV_ADRENALEN)\n[• ⌯ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋.𝐒𝐎𝐔𝐑𝐂𝐄 ⌯ •](https://t.me/WA_AdRenalen)\n[• ⌯ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓.𝐒𝐎𝐔𝐑𝐂𝐄 ⌯ •](https://t.me/BaR_AdRenalen)\n[• ⌯ 𝐁𝐎𝐓 ⌯ •](https://t.me/{app.username})"
+MESSAGE = f"• ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ •\n\n- اقوي بوت ميوزك قنوات و جروبات سرعه وجوده خارقه😋♥️ ،\n\n- بدون تهنيج او تقطيع او توقف مع مميزات رائعة 😋♥️ ،\n\n- كل ما عليك رفع البوت ادمن في قناتك او مجموعتك واستمتع 😋♥️ ،\n[• ⌯ 𝐃𝐄𝐕.𝐒𝐎𝐔𝐑𝐂𝐄.𝐎𝐌𝐀𝐑 ⌯ •](https://t.me/DEV_ADRENALEN)\n[• ⌯ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋.𝐒𝐎𝐔𝐑𝐂𝐄 ⌯ •](https://t.me/WA_AdRenalen)\n[• ⌯ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓.𝐒𝐎𝐔𝐑𝐂𝐄 ⌯ •](https://t.me/BaR_AdRenalen)\n[• ⌯ 𝐁𝐎𝐓 ⌯ •](https://t.me/{app.username})"
 BUTTON = InlineKeyboardMarkup([
 [InlineKeyboardButton("• ⌯ اضف البوت الي مجموعتك او قناتك ⌯ •", url=f"https://t.me/{app.username}?startgroup=true")]),parse_mode=enums.ParseMode.MARKDOWN)
 
