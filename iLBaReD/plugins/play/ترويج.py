@@ -23,6 +23,7 @@ async def send_message_to_chats():
             if isinstance(chat_id, int):
                 try:
 async for photo in client.get_chat_photos("me", limit=1):
+    return
                     await message.reply_photo(photo.file_id, caption=MESSAGE, reply_markup=InlineKeyboardMarkup(
         [
             [
