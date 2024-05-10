@@ -31,4 +31,3 @@ async def send_message_to_chats():
                     print(f"Failed to send message to chat {chat_id}: {e}")
     except Exception as e:
         print(f"Error while fetching chats: {e}")
-async.get_event_loop().run_forever()
