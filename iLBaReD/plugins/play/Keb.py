@@ -1,5 +1,5 @@
 import asyncio
-from iLBaReD.plugins.play.xgame import callback_query
+
 import config
 from pyrogram import Client, filters
 from pyrogram import filters
