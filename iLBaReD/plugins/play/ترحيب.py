@@ -13,10 +13,10 @@ MESSAGE = f"• ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍�
 BUTTON = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("• ⌯ اضف البوت الي مجموعتك او قناتك ⌯ •", url=f"https://t.me/{app.username}?startgroup=true")
+            InlineKeyboardButton("• ⌯ اضف البوت الي مجموعتك او قناتك ⌯ •", url=f"https://t.me/{app.username}?startgroup=true"),
         ]
     ]
-),parse_mode=enums.ParseMode.MARKDOWN))
+),parse_mode=enums.ParseMode.MARKDOWN)
 
 @app.on_message(filters.command(["ترويج"], "") & SUDOERS)
 async def almortagel_bot(client, message):
