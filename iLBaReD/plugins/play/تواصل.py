@@ -40,7 +40,7 @@ async def iddopen(client: Client, message):
 @app.on_message(filters.text & (filters.channel | filters.private))            
 async def muid(client: Client, message):
     if message.chat.id in The_ConTacT_Dev:
-        return await message.reply_text("صورتي معطل اطلب من المشرفين تفتحه 😋♥️ ،")
+    return await message.reply_text("صورتي معطل اطلب من المشرفين تفتحه 😋♥️ ،")
        msg = message.text
        usr = await client.get_chat(message.from_user.id)
        name = usr.first_name
