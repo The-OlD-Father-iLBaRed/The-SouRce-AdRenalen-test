@@ -20,8 +20,8 @@ OWNER_ID = getenv("OWNER_ID")
 OWNER_USER_NAME = getenv("OWNER_USER_NAME")
 OWNER = getenv("OWNER")
 ################################################
-@app.on_message(filters.command(["‹ الصفحة الرئيسية ›"]) & SUDOERS)
-@app.on_message(filters.command(["/start"]) & SUDOERS)
+@app.on_message(filters.command(["‹ الصفحة الرئيسية ›"], "") & SUDOERS)
+@app.on_message(filters.command(["/start"], "") & SUDOERS)
 async def crsourceowner(client: Client, message: Message):
     text = REPLY_MESSAGE
     reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
