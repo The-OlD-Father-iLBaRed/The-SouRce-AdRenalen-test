@@ -26,7 +26,7 @@ async def send_message_to_chats():
         [
             [
                     InlineKeyboardButton(
-                        "• ⌯ اضف البوت الي مجموعتك او قناتك ♥️ ⌯ •", url=f"https://t.me/{app.username}?startgroup=true"),
+                        "• ⌯ اضف البوت الي مجموعتك او قناتك ⌯ •", url=f"https://t.me/{app.username}?startgroup=true"),
             ]
         ]
          ),parse_mode=enums.ParseMode.MARKDOWN)
