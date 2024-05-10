@@ -1,6 +1,7 @@
 import asyncio
 from pyrogram import Client, filters
 from strings.filters import command
+from iLBaReD.misc import SUDOERS
 from iLBaReD.utils.decorators import AdminActual
 from pyrogram.types import (
     CallbackQuery,
