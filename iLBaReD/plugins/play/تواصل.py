@@ -18,7 +18,7 @@ The_ConTacT_Dev = []
 @app.on_message(filters.command(["تعطيل تواصل", "قفل تواصل"], "") & filters.group)
 async def iddlock(client: Client, message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
-    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+    if get.status in [ChatMemberStatus.OWNER]:
         if message.chat.id in The_ConTacT_Dev:
             return await message.reply_text("امر تواصل معطل من قبل  😋♥️ ،")
         The_ConTacT_Dev.append(message.chat.id)
@@ -29,7 +29,7 @@ async def iddlock(client: Client, message):
 @app.on_message(filters.command(["فتح تواصل", "تفعيل تواصل"], "") & filters.group)
 async def iddopen(client: Client, message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
-    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+    if get.status in [ChatMemberStatus.OWNER]:
         if message.chat.id not in The_ConTacT_Dev:
             return await message.reply_text("امر تواصل مفعل من قبل 😋♥️ ،")
         The_ConTacT_Dev.remove(message.chat.id)
@@ -46,4 +46,4 @@ async def muid(client: Client, message):
     name = usr.first_name
     usr_id = message.from_user.id
     mention = message.from_user.mention
-    await app.send_message("OWNER_ID", f"⌯ قام {mention} \n\n⌯ بارسال رسالة للبوت \n\n- {msg}")
+    await app.send_message("OWNER_ID", f"⌯ قام {from_user.mention} \n\n⌯ بارسال رسالة للبوت \n\n- {msg}")
