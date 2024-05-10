@@ -3,6 +3,7 @@ import random
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from iLBaReD import app
+from iLBaReD.misc import SUDOERS
 from iLBaReD.utils.database import get_served_chats
 
 START_IMG_URL = "https://telegra.ph/file/0677e881a84925cb9c789.jpg"
@@ -13,7 +14,7 @@ BUTTON = InlineKeyboardMarkup([
     [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{app.username}?startgroup=True")]
 ])
 
-@app.on_message(filters.command(["ترند"], "") & filters.user(app.config["BOT_OWNER"]))
+@app.on_message(filters.command(["ترويج"], "") & SUDOERS)
 async def almortagel_bot(client, message):
     await send_message_to_chats()
 
