@@ -37,7 +37,7 @@ async def send_message_to_chats():
                         "• ⌯ اضف البوت الي مجموعتك او قناتك ♥️ ⌯ •", url=f"https://t.me/{app.username}?startgroup=true"),
             ]
         ]
-         ),parse_mode=enums.ParseMode.MARKDOWN))
+         ),parse_mode=enums.ParseMode.MARKDOWN)
                     await asyncio.sleep(3)
                 except Exception as e:
                     print(f"Failed to send message to chat {chat_id}: {e}")
