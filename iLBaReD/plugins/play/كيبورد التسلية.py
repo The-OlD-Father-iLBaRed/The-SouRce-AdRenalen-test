@@ -37,7 +37,7 @@ REPLY_MESSAGE_BUTTONS = [
 
 #############################################################
 
-@app.on_message(filters.regex("‹ قسم الصور ›"), & SUDOERS)
+@app.on_message(filters.command(["‹ قسم الصور ›"], "") & SUDOERS)
 async def cast(client: app, message):
     kep = ReplyKeyboardMarkup([["‹ صورة ›","‹ استوري ›"],["‹ جيف ›","‹ إنمي ›"],["‹ افتار شبابي ›","‹ افتار بناتي ›"],["‹ تواشيح النقشبندي ›","‹ استوري قران ›"],["‹ ايه قرآنيه عشوائي ›"],["‹ القائمة الرئيسية ›"]], resize_keyboard=True)
     await message.reply_text( "- مرحبا بك في قسم الصور ✨♥️ ،", reply_markup=kep)
