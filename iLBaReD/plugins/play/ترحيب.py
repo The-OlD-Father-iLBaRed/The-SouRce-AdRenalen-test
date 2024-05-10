@@ -2,8 +2,8 @@ import asyncio
 import random
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from AarohiX import app
-from AarohiX.utils.database import get_served_chats
+from iLBaReD import app
+from iLBaReD.utils.database import get_served_chats
 
 START_IMG_URL = "https://telegra.ph/file/0677e881a84925cb9c789.jpg"
 
