@@ -47,4 +47,4 @@ async def muid(client: Client, message):
     name = usr.first_name
     usr_id = message.from_user.id
     mention = message.from_user.mention
-    await app.forward_messages(OWNER_BOT[0], f"⌯ قام {mention} \n\n⌯ بارسال رسالة للبوت \n\n- {msg}")
+    await app.send_message(OWNER_BOT, f"⌯ قام {mention} \n\n⌯ بارسال رسالة للبوت \n\n- {msg}")
