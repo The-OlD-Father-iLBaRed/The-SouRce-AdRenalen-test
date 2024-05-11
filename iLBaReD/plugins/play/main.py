@@ -2,7 +2,7 @@ from pyrogram import Client, filters, idle
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from pyrogram.errors import PeerIdInvalid
 from iLBaReD import app
-import config *
+import config 
 from asyncio import get_event_loop
 from config import bot
 from config import bot_id
