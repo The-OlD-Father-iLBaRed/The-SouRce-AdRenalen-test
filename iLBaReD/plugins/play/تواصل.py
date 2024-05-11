@@ -1,4 +1,5 @@
 import asyncio
+from config import OWNER_BOT
 from pyrogram import Client, filters
 from pyrogram.enums import ChatMemberStatus
 from random import choice
@@ -37,7 +38,7 @@ async def iddopen(client: Client, message):
     else:
         return await message.reply_text("عذرا عزيزي هذا الامر للمشرفين بس 😋♥️ ،")
         
-@app.on_message(filters.text & (filters.channel | filters.private))            
+@app.on_message(filters.private)            
 async def muid(client: Client, message):
     if message.chat.id in The_ConTacT_Dev:
         return await message.reply_text("تواصل معطل اطلب من المشرفين تفتحه 😋♥️ ،")
@@ -46,4 +47,4 @@ async def muid(client: Client, message):
     name = usr.first_name
     usr_id = message.from_user.id
     mention = message.from_user.mention
-    await app.send_message(1924832439, f"⌯ قام {mention} \n\n⌯ بارسال رسالة للبوت \n\n- {msg}")
+    await app.forward_messages(OWNER_BOT[0], f"⌯ قام {mention} \n\n⌯ بارسال رسالة للبوت \n\n- {msg}")
