@@ -13,8 +13,9 @@ TOKEN = getenv("BOT_TOKEN")التوكن
 SUDORS = [1924832439]
 API_ID = int(getenv("API_ID", 21769847))
 API_HASH = getenv("API_HASH", "d5031334164f12ef47a7f3c7c3116207")
-bot = Client("control",API_ID,API_HASH,bot_token=TOKEN,in_memory=True)
 bot_id = TOKEN.split(":")[0]
+bot = Client("control",API_ID,API_HASH,bot_token=TOKEN,in_memory=True)
+
 
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
