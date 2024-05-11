@@ -9,7 +9,7 @@ db = asJSON("as.json")
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
-TOKEN = getenv("BOT_TOKEN")التوكن
+TOKEN = "7062480638:AAHfgbNFCeIYwSovTUOPuGsLEEvwkITgX-Q"
 SUDORS = [1924832439]
 API_ID = int(getenv("API_ID", 21769847))
 API_HASH = getenv("API_HASH", "d5031334164f12ef47a7f3c7c3116207")
