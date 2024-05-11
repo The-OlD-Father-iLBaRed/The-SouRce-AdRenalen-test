@@ -1,13 +1,33 @@
 import re
 from os import getenv
+from pyrogram import Client
+from asBASE import asJSON
 from dotenv import load_dotenv
 from pyrogram import filters
+
+
+
+from pyrogram import Client
+from asBASE import asJSON
+
+db = asJSON("as.json")
+###
+
+
+
+
+
+
+
 
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
+SUDORS = [1924832439]
 API_ID = int(getenv("API_ID", 21769847))
 API_HASH = getenv("API_HASH", "d5031334164f12ef47a7f3c7c3116207")
+bot = Client("control",API_ID,API_HASH,bot_token=TOKEN,in_memory=True)
+bot_id = TOKEN.split(":")[0]
 
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
