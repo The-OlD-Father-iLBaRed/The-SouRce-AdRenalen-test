@@ -2,7 +2,10 @@ from pyrogram import Client, filters, idle
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from pyrogram.errors import PeerIdInvalid
 from asyncio import get_event_loop
-from config import bot, bot_id, db, SUDORS
+from config import bot
+from config import bot_id
+from config import db
+from config import SUDORS
 import asyncio, os
 
 def add_new_user(user_id):
