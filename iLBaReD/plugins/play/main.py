@@ -43,7 +43,7 @@ async def main():
 	await idle()
 
 
-@bot.on_message(filters.command("start") & filters.private)
+@app.on_message(filters.command("start") & filters.private)
 async def new_user(bot, msg):
 	if not is_user(msg.from_user.id):
 		add_new_user(msg.from_user.id)
@@ -60,7 +60,7 @@ async def new_user(bot, msg):
 				await bot.send_message(int(user_id), text, reply_markup=reply_markup)
 		else:
 			await bot.send_message(int(SUDORS[0]), text, reply_markup=reply_markup)
-@bot.on_message(filters.command("start") & filters.private, group=1)
+@app.on_message(filters.command("start") & filters.private, group=1)
 async def admins(bot, msg):
 	if msg.from_user.id in SUDORS:
 		reply_markup = ReplyKeyboardMarkup([
@@ -73,7 +73,7 @@ async def admins(bot, msg):
 			[("• نسخه اعضاء •"), ("• رفع نسخه •")],
 			[("• الغاء •")]])
 		await msg.reply(f"• اهلا عزيزي المطور {msg.from_user.mention}", reply_markup=reply_markup, quote=True)
-@bot.on_message(filters.text & filters.private, group=2)
+@app.on_message(filters.text & filters.private, group=2)
 async def cmd(bot, msg):
 	if msg.from_user.id in SUDORS:
 		if msg.text == "• الغاء •":
@@ -122,7 +122,7 @@ async def cmd(bot, msg):
 			await msg.reply("• ارسل الان نسخه ملف الاعضاء", quote=True)
 			db.set(f"{msg.from_user.id}:users_up:{bot_id}", 1)
 
-@bot.on_message(filters.private, group=3)
+@app.on_message(filters.private, group=3)
 async def forbroacasts(bot, msg):
 	if msg.from_user.id in SUDORS and msg.text != "• اذاعه •" and msg.text != "• اذاعه بالتوجيه •" and msg.text != "• اذاعه بالتثبيت •" and msg.text != "• الغاء •" and msg.text != "• رفع نسخه •" and msg.text != "• اوامر الاذاعه •" and msg.text != "• تعطيل التواصل •" and msg.text != "• تفعيل التواصل •" and msg.text != "• اوامر التواصل •" and msg.text != "• اخفاء الكيبورد •" and msg.text != "• الاحصائيات •":
 		if db.get(f"{msg.from_user.id}:broadcast:{bot_id}"):
@@ -188,7 +188,7 @@ async def forbroacasts(bot, msg):
 			db.delete(f"{msg.from_user.id}:users_up:{bot_id}")
 		except:
 			pass
-@bot.on_message(filters.private, group=4)
+@app.on_message(filters.private, group=4)
 async def twasl(bot, msg):
 	if msg.from_user.id not in SUDORS:
 		for user in SUDORS:
