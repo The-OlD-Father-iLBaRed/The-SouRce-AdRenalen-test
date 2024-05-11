@@ -1,21 +1,13 @@
 import re
 from os import getenv
-from pyrogram import Client
-from asBASE import asJSON
 from dotenv import load_dotenv
 from pyrogram import filters
-db = asJSON("as.json")
-##
+
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
-TOKEN = "7062480638:AAHfgbNFCeIYwSovTUOPuGsLEEvwkITgX-Q"
-SUDORS = [1924832439]
 API_ID = int(getenv("API_ID", 21769847))
 API_HASH = getenv("API_HASH", "d5031334164f12ef47a7f3c7c3116207")
-bot_id = TOKEN.split(":")[0]
-bot = Client("control",API_ID,API_HASH,bot_token=TOKEN,in_memory=True)
-
 
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
@@ -25,7 +17,7 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 1900700 ))
 
-# Chat id of a group for logging bot's activities
+# Chat id of a group for logging bot s activities
 LOGGER_ID = int(getenv("LOGGER_ID", -1002107304490))
 
 # Get this value from @FallenxBot on Telegram by /id
@@ -33,7 +25,7 @@ OWNER_ID = int(getenv("OWNER_ID", 1924832439))
 DEVELOPERS = [1924832439]
 OWNER_BOT = 1924832439
 
-## Fill these variables if you're deploying on heroku.
+## Fill these variables if you re deploying on heroku.
 # Your heroku app name
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 # Get it from http://dashboard.heroku.com/account
@@ -60,7 +52,7 @@ SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", None)
 SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", None)
 
 
-# Maximum limit for fetching playlist's track from youtube, spotify, apple links.
+# Maximum limit for fetching playlist s track from youtube, spotify, apple links.
 PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", 25))
 
 
