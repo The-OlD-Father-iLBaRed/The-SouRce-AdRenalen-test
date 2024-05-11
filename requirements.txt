@@ -1,7 +1,5 @@
 aiofiles
 pyrogram
-TgCrypto
-asBASE
 aiohttp
 asyncio
 beautifulsoup4
