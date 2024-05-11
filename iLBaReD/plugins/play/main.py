@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyb
 from pyrogram.errors import PeerIdInvalid
 from iLBaReD import app
 from asyncio import get_event_loop
-from config import bot
+
 from config import bot_id
 from config import db
 from config import SUDORS
