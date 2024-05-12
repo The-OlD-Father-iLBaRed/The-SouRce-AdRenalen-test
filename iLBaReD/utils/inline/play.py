@@ -40,8 +40,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         ],[
             InlineKeyboardButton(text="• ⌯ 𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ •", url=f"https://t.me/WA_AdRenalen"),
         ],[
-            InlineKeyboardButton(text="اضف البوت الي جروبك او قناتك 🎸 ⋅", url=f"https://t.me/{app.username}?startgroup=true")],
-    ]
+            InlineKeyboardButton(text="اضف البوت الي جروبك او قناتك 🎸 ⋅", url=f"https://t.me/{app.username}?startgroup=true")]
     return buttons
 
 
