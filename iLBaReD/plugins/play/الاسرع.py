@@ -28,7 +28,7 @@ async def unblock_badword(client:Client, message:Message):
     else:
         return await message.reply_text(f"- انت لسته مشرف يـ ⦗ {message.from_user.mention} ⦘\nوهذا الامر للمشرفين 😋♥️ ،")
 
-@app.on_message(filters.badword)
+@app.on_message(filters.bad_words)
 async def delete_badword(client:Client, message:Message):
     if message.chat.id in badword_lock:
         await message.delete()
