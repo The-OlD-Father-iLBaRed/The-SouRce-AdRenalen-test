@@ -10,9 +10,9 @@ bad_words = []
 async def block_bad_words(client:Client, message:Message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
     if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-        if message.chat.id in bad_words_lock:
+        if message.chat.id in bad_words:
             return await message.reply_text(f"تم قفل السب من قبل 😋♥️ ،")
-        bad_words_lock.append(message.chat.id)
+        bad_words.append(message.chat.id)
         return await message.reply_text(f"قام : ⦗ {message.from_user.mention} ⦘\nبقفل السب 😋♥️ ،")
     else:
         return await message.reply_text(f"- انت لسته مشرف يـ ⦗ {message.from_user.mention} ⦘\nوهذا الامر للمشرفين 😋♥️ ،")
@@ -21,16 +21,16 @@ async def block_bad_words(client:Client, message:Message):
 async def unblock_bad_words(client:Client, message:Message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
     if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-        if message.chat.id not in bad_words_lock:
+        if message.chat.id not in bad_words:
             return await message.reply_text(f"تم فتح السب من قبل 😋♥️ ،")
-        bad_words_lock.remove(message.chat.id)
+        bad_words.remove(message.chat.id)
         return await message.reply_text(f"قام : ⦗ {message.from_user.mention} ⦘\n بفتح السب 😋♥️ ،")
     else:
         return await message.reply_text(f"- انت لسته مشرف يـ ⦗ {message.from_user.mention} ⦘\nوهذا الامر للمشرفين 😋♥️ ،")
 
-@app.on_message(filters.photo)
+@app.on_message(filters.bad_words)
 async def delete_bad_words(client:Client, message:Message):
-    if message.chat.id in bad_words_lock:
+    if message.chat.id in bad_words:
         await message.delete()
         await message.reply(f"عزرا يـ  ⦗ {message.from_user.mention} ⦘ 😋♥️ ،\nلا يمكنك ارسال كلمات مسيئة هنا 😋♥️ ،")       
-        
+   
