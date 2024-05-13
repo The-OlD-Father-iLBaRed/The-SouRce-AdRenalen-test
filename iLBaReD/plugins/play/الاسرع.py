@@ -104,10 +104,10 @@ async def stop(client, message):
     return
   if message.chat.id in menchen_all_chat:
     return await message.reply_text("انا لا اقوم بعمل منشن الان😋♥️ ،")
-  if message.chat.id not in menchen_all_chat:
+  elif message.chat.id not in menchen_all_chat:
      await message.reply("المنشن متوقف يصحبي 💘 ⋅")
      return 
-  if message.chat.id in menchen_all_chat:
+  elif message.chat.id in menchen_all_chat:
     menchen_all_chat.remove(message.chat.id)
     await message.reply("تم ايقاف المنشن يزميلي 💘 ⋅")
     return
