@@ -6,7 +6,7 @@ from pyrogram.enums import ChatMemberStatus
 
 The_BadWord_Bot = []
 
-The_BadWord = ["كسمك"
+The_BadWord = ["كسمك"]
 @app.on_message(filters.command(["قفل السب","تعطيل السب"],""))
 async def block_The_BadWord(client:Client, message:Message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
