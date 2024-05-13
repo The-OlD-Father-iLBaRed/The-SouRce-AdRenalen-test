@@ -180,7 +180,7 @@ async def game_handler(client: Client, message: Message):
 
     correct_answer = correct_answers[current_question_index]
 
-    if message.text.lower() == correct_answer:
+    if message.text.lower() == correct_answers:
         await message.reply("إجابة صحيحة!")
         current_question_index += 1
 
