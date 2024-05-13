@@ -1,112 +1,192 @@
 import asyncio
-import os
-import time
-import requests
-from pyrogram import enums
-import aiohttp
-from pyrogram import filters
-from pyrogram import Client
-from pyrogram.enums import ChatMemberStatus
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from iLBaReD  import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
-from iLBaReD  import app
-from telegraph import upload_file
-from asyncio import gather
-from pyrogram.errors import FloodWait
-import asyncio
-from pyrogram import Client, filters
-from pyrogram.enums import ChatMemberStatus
-from random import choice
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMarkup, Message)
-from iLBaReD import app
-from typing import Union
-from pyrogram.types import InlineKeyboardButton
+import random
+from pyrogram import filters, Client
+from pyrogram.types import Message
+from ZeMusic import app
+import config
 
 
-menchen_all_chat = []
 
-@app.on_message(filters.command(["تعطيل صورتي", "قفل صورتي"], "") & filters.group)
-async def iddlock(client: Client, message):
-    get = await client.get_chat_member(message.chat.id, message.from_user.id)
-    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-        if message.chat.id in menchen_all_chat:
-            return await message.reply_text("امر صورتي معطل من قبل  😋♥️ ،")
-        menchen_all_chat.append(message.chat.id)
-        return await message.reply_text("تم تعطيل امر صورتي بنجاح 😋♥️ ،")
-    else:
-        return await message.reply_text("عذرا عزيزي هذا الامر للمشرفين بس 😋♥️ ،")
+txt = [
+    "- اسرع واحد يدز الكلمة ~ ( بارده)",
+    "- اسرع واحد يدز الكلمة ~ ( اجيت)",
+    "**- اسرع واحد يدز الكلمة*ذ ~ ( جبان)",
+    "- اسرع واحد يدز الكلمة ~ ( مافهمت)",
+    "- اسرع واحد يدز الكلمة ~ ( ميت)",
+    "- اسرع واحد يدز الكلمة ~ ( وصخ)",  
+    "- اسرع واحد يدز الكلمة ~ ( جوعان)",
+    "- اسرع واحد يدز الكلمة ~ ( زين)",
+    "- اسرع واحد يدز الكلمة ~ ( قوي)",
+    "- اسرع واحد يدز الكلمة ~ ( بطيء)",
+    "- اسرع واحد يدز الكلمة ~ ( ذكي)",
+    "- اسرع واحد يدز الكلمة ~ ( خائف)",
+    "- اسرع واحد يدز الكلمة ~ ( حزين)",
+    "- اسرع واحد يدز الكلمة ~ ( مستمتع)",
+    "- اسرع واحد يدز الكلمة ~ ( فرحان)",
+    "- اسرع واحد يدز الكلمة ~ ( ذو شخصية قوية)",
+    "- اسرع واحد يدز الكلمة ~ ( واثق)",
+    "- اسرع واحد يدز الكلمة ~ ( متوتر)",
+    "- اسرع واحد يدز الكلمة ~ ( مندهش)",
+    "- اسرع واحد يدز الكلمة ~ ( فائق الذكاء)",
+    "- اسرع واحد يدز الكلمة ~ ( ذكي للغاية)",
+    "- اسرع واحد يدز الكلمة ~ ( متسرع)",
+    "- اسرع واحد يدز الكلمة ~ ( متفائل)",
+    "- اسرع واحد يدز الكلمة ~ ( متشائم)",
+    "- اسرع واحد يدز الكلمة ~ ( متفائل جداً)",
+    "- اسرع واحد يدز الكلمة ~ ( مكتئب)",
+    "- اسرع واحد يدز الكلمة ~ ( مبتهج)",
+    "- اسرع واحد يدز الكلمة ~ ( مغمض العينين)",
+    "- اسرع واحد يدز الكلمة ~ ( مستنكر)",
+    "- اسرع واحد يدز الكلمة ~ ( مرتبك)",
+    "- اسرع واحد يدز الكلمة ~ ( متحمس)",
+    "- اسرع واحد يدز الكلمة ~ ( متعب)",
+    "- اسرع واحد يدز الكلمة ~ ( مفاجأ)",
+    "- اسرع واحد يدز الكلمة ~ ( محبوب)",
+    "- اسرع واحد يدز الكلمة ~ ( مكره)",
+    "- اسرع واحد يدز الكلمة ~ ( معجب)",
+    "- اسرع واحد يدز الكلمة ~ ( متواضع)",
+    "- اسرع واحد يدز الكلمة ~ ( متكبر)",
+    "- اسرع واحد يدز الكلمة ~ ( متفائل جداً)",
+    "- اسرع واحد يدز الكلمة ~ ( محبوب للغاية)",
+    "- اسرع واحد يدز الكلمة ~ ( معفن)",
+    "- اسرع واحد يدز الكلمة ~ ( محترم)",
+    "- اسرع واحد يدز الكلمة ~ ( مشاغب)",
+    "- اسرع واحد يدز الكلمة ~ ( متسلط)",
+    "- اسرع واحد يدز الكلمة ~ ( متواضع جداً)",
+    "- اسرع واحد يدز الكلمة ~ ( متهور)",
+    "- اسرع واحد يدز الكلمة ~ ( مبتكر)",
+    "- اسرع واحد يدز الكلمة ~ ( ملهم)",
+    "- اسرع واحد يدز الكلمة ~ ( مضحك)",
+    "- اسرع واحد يدز الكلمة ~ ( مكتئب جداً)",
+    "- اسرع واحد يدز الكلمة ~ ( مهتم)",
+    "- اسرع واحد يدز الكلمة ~ ( محطم)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالحياة)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالحماس)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالتفاؤل)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالسعادة)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالحزن)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالرغبة)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالحب)",
 
-@app.on_message(filters.command(["فتح صورتي", "تفعيل صورتي"], "") & filters.group)
-async def iddopen(client: Client, message):
-    get = await client.get_chat_member(message.chat.id, message.from_user.id)
-    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-        if message.chat.id not in menchen_all_chat:
-            return await message.reply_text("امر صورتي مفعل من قبل 😋♥️ ،")
-        menchen_all_chat.remove(message.chat.id)
-        return await message.reply_text("تم فتح امر صورتي بنجاح 😋♥️ ،")
-    else:
-        return await message.reply_text("عذرا عزيزي هذا الامر للمشرفين بس 😋♥️ ،")
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالحنان)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالكراهية)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالامتنان)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالرضا)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالخيبة)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالحزن)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالفرح)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالندم)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالنجاح)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالفشل)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالتحدي)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالحكمة)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالجنون)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالسكون",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالحركة)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالفكاهة)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالعقلانية)",
+    "- اسرع واحد يدز الكلمة ~ ( مليء بالجمال)",
+]
+correct_answers = [
+    "بارده",
+    "اجيت",
+    "جبان",
+    "مافهمت",
+    "ميت",
+    "وصخ",  
+    "جوعان",
+    "زين",
+    "قوي",
+    "بطيء",
+    "ذكي",
+    "خائف",
+    "حزين",
+    "مستمتع",
+    "فرحان",
+    "ذو شخصية قوية",
+    "واثق",
+    "متوتر",
+    "مندهش",
+    "فائق الذكاء",
+    "ذكي للغاية",
+    "متسرع",
+    "متفائل",
+    "متشائم",
+    "متفائل جداً",
+    "مكتئب",
+    "مبتهج",
+    "مغمض العينين",
+    "مستنكر",
+    "مرتبك",
+    "متحمس",
+    "متعب",
+    "مفاجأ",
+    "محبوب",
+    "مكره",
+    "معجب",
+    "متواضع",
+    "متكبر",
+    "متفائل جداً",
+    "محبوب للغاية",
+    "معفن",
+    "محترم",
+    "مشاغب",
+    "متسلط",
+    "متواضع جداً",
+    "متهور",
+    "مبتكر",
+    "ملهم",
+    "مضحك",
+    "مكتئب جداً",
+    "مهتم",
+    "محطم",
+    "مليء بالحياة",
+    "مليء بالحماس",
+    "مليء بالتفاؤل",
+    "مليء بالسعادة",
+    "مليء بالحزن",
+    "مليء بالرغبة",
+    "مليء بالحب",
 
-@app.on_message(filters.command(["@all", "تاك","all"], "") & ~filters.private, group=88)
-async def nummmm(client: app, message):
-  if message.chat.id in menchen_all_chat:
-        return await message.reply_text("صورتي معطل اطلب من المشرفين تفتحه 😋♥️ ،")
-  elif message.chat.id in menchen_all_chat:
-     return await message.reply_text("التاك قيد التشغيل الان 💘 ⋅")
-  chek = await client.get_chat_member(message.chat.id, message.from_user.id)
-  if not chek.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-    await message.reply("الامر دا للمشرفين بس 💘 ⋅")
-    return
-  await message.reply_text("جار بدء المنشن لايقاف التشغيل اكتب ⦗ ايقاف التاك ⦘ 💘 ⋅")
-  i = 0
-  txt = ""
-  zz = message.text
-  if message.photo:
-          photo_id = message.photo.file_id
-          photo = await client.download_media(photo_id)
-          zz = message.caption
-  try:
-   zz = zz.replace("@all","").replace("تاك","").replace("all","")
-  except:
-    pass
-  menchen_all_chat.append(message.chat.id)
-  async for x in client.get_chat_members(message.chat.id):
-      if message.chat.id not in menchen_all_chat:
+    "مليء بالحنان",
+    "مليء بالكراهية",
+    "مليء بالامتنان",
+    "مليء بالرضا",
+    "مليء بالخيبة",
+    "مليء بالحزن",
+    "مليء بالفرح",
+    "مليء بالندم",
+    "مليء بالنجاح",
+    "مليء بالفشل",
+    "مليء بالتحدي",
+    "مليء بالحكمة",
+    "مليء بالجنون",
+    "مليء بالسكون",
+    "مليء بالحركة",
+    "مليء بالفكاهة",  
+    "مليء بالعقلانية",  
+    "مليء بالجمال",  
+]
+
+current_question_index = 0
+
+@app.on_message(filters.command(["كلمه"], ""))
+async def game_handler(client: Client, message: Message):
+    global current_question_index
+
+    if current_question_index >= len(correct_answers):
+        await message.reply("تم انتهاء الأسئلة.")
         return
-      if not x.user.is_deleted:
-       i += 1
-       txt += f" {x.user.mention} ›"
-       if i == 50:
-        try:
-              if not message.photo:
-                    await client.send_message(message.chat.id, f"{zz}\n{txt}")
-              else:
-                    await client.send_photo(message.chat.id, photo=photo, caption=f"{zz}\n{txt}")
-              i = 0
-              txt = ""
-              await asyncio.sleep(2)
-        except FloodWait as e:
-                    flood_time = int(e.x)
-                    if flood_time > 250:
-                        continue
-                    await asyncio.sleep(flood_time)
-        except Exception:
-              menchen_all_chat.remove(message.chat.id)
-  menchen_all_chat.remove(message.chat.id)
 
+    current_question = correct_answers[current_question_index]
 
-@app.on_message(filters.command(["ايقاف المنشن","تعطيل المنشن","/cancel", "ايقاف التاك"], ""), group=822)
-async def stop(client, message):
-  chek = await client.get_chat_member(message.chat.id, message.from_user.id)
-  if not chek.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-    await message.reply("الامر دا للمشرفين بس 💘 ⋅")
-    return
-  if message.chat.id not in menchen_all_chat:
-     await message.reply("المنشن متوقف يصحبي 💘 ⋅")
-     return 
-  elif message.chat.id in menchen_all_chat:
-    menchen_all_chat.remove(message.chat.id)
-    await message.reply("تم ايق اف المنشن يزميلي 💘 ⋅")
-    return
+    if message.text.lower() == current_question:
+        await message.reply("إجابة صحيحة!")
+        current_question_index += 1
 
+        if current_question_index < len(correct_answers):
+            await message.reply(f"السؤال الحالي: {correct_answers[current_question_index]}")
+        else:
+            await message.reply("تم انتهاء الأسئلة. شكرًا للمشاركة.")
+    else:
+        await message.reply("إجابة خاطئة. حاول مرة أخرى.")
