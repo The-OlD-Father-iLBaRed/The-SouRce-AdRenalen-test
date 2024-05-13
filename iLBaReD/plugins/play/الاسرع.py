@@ -2,7 +2,7 @@ import asyncio
 import random
 from pyrogram import filters, Client
 from pyrogram.types import Message
-from ZeMusic import app
+from iLBaReD import app
 import config
 
 
