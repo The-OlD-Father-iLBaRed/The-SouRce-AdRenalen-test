@@ -34,10 +34,6 @@ async def game_handler(client: Client, message: Message):
     current_question = questions[current_question_index]
     correct_answer = answers[current_question_index]
 
-    if message.text.lower() == correct_answer:
-        await message.reply("إجابة صحيحة!")
-        current_question_index += 1
-
         if current_question_index < len(questions):
             await message.reply(f"السؤال الحالي: {questions[current_question_index]}")
         else:
