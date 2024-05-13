@@ -102,6 +102,8 @@ async def stop(client, message):
   if not chek.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
     await message.reply("الامر دا للمشرفين بس 💘 ⋅")
     return
+  if message.chat.id in menchen_all_chat:
+    return await message.reply_text("امر صورتي معطل من قبل  😋♥️ ،")
   if message.chat.id not in menchen_all_chat:
      await message.reply("المنشن متوقف يصحبي 💘 ⋅")
      return 
