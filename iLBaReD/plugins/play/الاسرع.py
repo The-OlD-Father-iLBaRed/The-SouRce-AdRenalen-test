@@ -47,7 +47,7 @@ async def iddopen(client: Client, message):
         return await message.reply_text("تم فتح امر صورتي بنجاح 😋♥️ ،")
     else:
         return await message.reply_text("عذرا عزيزي هذا الامر للمشرفين بس 😋♥️ ،")
-menchen_all_chat = []
+
 @app.on_message(filters.command(["@all", "تاك","all"], "") & ~filters.private, group=88)
 async def nummmm(client: app, message):
   if message.chat.id in menchen_all_chat:
