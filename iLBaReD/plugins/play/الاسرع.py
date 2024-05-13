@@ -1,4 +1,3 @@
-import asyncio
 import random
 from pyrogram import filters, Client
 from pyrogram.types import Message
@@ -21,26 +20,28 @@ answers = [
     "ميت",
 ]
 
-current_question_index = 0
+current_question_index = None
 
 @app.on_message(filters.command(["كلمه"], ""))
-async def game_handler(client: Client, message: Message):
+async def game_start(client: Client, message: Message):
     global current_question_index
 
-    if current_question_index >= len(questions):
-        await message.reply("تم انتهاء الأسئلة.")
+    current_question_index = random.randint(0, len(questions) - 1)
+    current_question = questions[current_question_index]
+
+    await message.reply(current_question)
+
+@app.on_message(filters.text & ~filters.me)
+async def check_answer(client: Client, message: Message):
+    global current_question_index
+
+    if current_question_index is None:
         return
 
-    current_question = questions[current_question_index]
     correct_answer = answers[current_question_index]
 
-        if current_question_index < len(questions):
-            await message.reply(f"السؤال الحالي: {questions[current_question_index]}")
-        else:
-            await message.reply("تم انتهاء الأسئلة. شكرًا للمشاركة.")
+    if message.text.lower() == correct_answer:
+        await message.reply("إجابة صحيحة!")
+        current_question_index = None
     else:
         await message.reply("إجابة خاطئة. حاول مرة أخرى.")
-
-        # إرسال سؤال جديد عند الإجابة الخاطئة
-        if current_question_index < len(questions):
-            await message.reply(f"السؤال الحالي: {questions[current_question_index]}")
