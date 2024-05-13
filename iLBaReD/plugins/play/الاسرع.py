@@ -25,6 +25,29 @@ from pyrogram.types import InlineKeyboardButton
 
 
 menchen_all_chat = []
+
+@app.on_message(filters.command(["تعطيل صورتي", "قفل صورتي"], "") & filters.group)
+async def iddlock(client: Client, message):
+    get = await client.get_chat_member(message.chat.id, message.from_user.id)
+    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+        if message.chat.id in menchen_all_chat:
+            return await message.reply_text("امر صورتي معطل من قبل  😋♥️ ،")
+        menchen_all_chat.append(message.chat.id)
+        return await message.reply_text("تم تعطيل امر صورتي بنجاح 😋♥️ ،")
+    else:
+        return await message.reply_text("عذرا عزيزي هذا الامر للمشرفين بس 😋♥️ ،")
+
+@app.on_message(filters.command(["فتح صورتي", "تفعيل صورتي"], "") & filters.group)
+async def iddopen(client: Client, message):
+    get = await client.get_chat_member(message.chat.id, message.from_user.id)
+    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+        if message.chat.id not in menchen_all_chat:
+            return await message.reply_text("امر صورتي مفعل من قبل 😋♥️ ،")
+        menchen_all_chat.remove(message.chat.id)
+        return await message.reply_text("تم فتح امر صورتي بنجاح 😋♥️ ،")
+    else:
+        return await message.reply_text("عذرا عزيزي هذا الامر للمشرفين بس 😋♥️ ،")
+menchen_all_chat = []
 @app.on_message(filters.command(["@all", "تاك","all"], "") & ~filters.private, group=88)
 async def nummmm(client: app, message):
   if message.chat.id in menchen_all_chat:
