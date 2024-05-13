@@ -178,9 +178,9 @@ async def game_handler(client: Client, message: Message):
         await message.reply("تم انتهاء الأسئلة.")
         return
 
-    current_question = correct_answers[current_question_index]
+    correct_answer = correct_answers[current_question_index]
 
-    if message.text.lower() == current_question:
+    if message.text.lower() == correct_answer:
         await message.reply("إجابة صحيحة!")
         current_question_index += 1
 
