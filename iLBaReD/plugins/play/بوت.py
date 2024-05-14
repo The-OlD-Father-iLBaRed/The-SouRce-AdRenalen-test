@@ -15,8 +15,9 @@ name = "ادرينالين"
 @app.on_message(filters.regex("تعيين اسم البوت")& filters.private & SUDOERS, group=7113)
 async def set_bot_name(client, message):
     global name
-    ask = await app.ask(message.chat.id, "ارسل الاسم الجديد", timeout=300)
-    name = ask
+    name = await app.name(message.chat.id, "ارسل الاسم الجديد")
+    name = name.text
+    await app.set_bot_name(name)
     await message.reply_text("تم تعيين الاسم بنجاح")
 
 caesar_responses = [
@@ -45,4 +46,3 @@ async def caesar_bot(client, message):
         disable_web_page_preview=True,
         reply_markup=keyboard,
     parse_mode=enums.ParseMode.MARKDOWN)
-
