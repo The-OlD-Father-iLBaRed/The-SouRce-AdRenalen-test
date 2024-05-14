@@ -8,35 +8,25 @@ from pyrogram import filters, Client
 from iLBaReD import app
 from config import *
 
-bot_name = {}
+AdRenalen_Bot={}
+
+The_Name_Bot = ["اسمي {name} يصحبي 💘 ⋅","يسطا قولتلك اسمي {name } ☺️","اي يزميلي 😂♥️ ،","قلب البوت 🥹💘 ⋅","ثانية بشقط التنية 😂💘 ،","يعم والله بحبك بس ناديلي ب {name} 🙂","اي ي معلم مين مزعلك","ايوا جاااي 😂♥️ ،","تبا لك ماذا تريد من امي 🙂",]
 
 name = "ادرينالين"
 
 @app.on_message(filters.regex("تعيين اسم البوت")& filters.private & SUDOERS, group=7113)
-async def set_bot_name(client, message):
+async def AdRenalen_Bot(client, message):
     global name
-    name = await app.name(message.chat.id, "ارسل الاسم الجديد")
-    name = name.text
-    await app.set_bot_name(name)
+    neme = await app.neme(message.chat.id, "ارسل الاسم الجديد")
+    name = neme.text
     await message.reply_text("تم تعيين الاسم بنجاح")
 
-caesar_responses = [
-    "اسمي {name} يصحبي 💘 ⋅",
-    "يسطا قولتلك اسمي {name } ☺️",
-    "اي يزميلي 😂♥️ ،",
-    "قلب البوت 🥹💘 ⋅",
-    "ثانية بشقط التنية 😂💘 ،",
-    "يعم والله بحبك بس ناديلي ب {name} 🙂",
-    "اي ي معلم مين مزعلك",
-    "ايوا جاااي 😂♥️ ،",
-    "تبا لك ماذا تريد من امي 🙂",
-]
 
 @app.on_message(filters.command(["بوت", "البوت"], ""), group=71135)
-async def caesar_bot(client, message):
+async def AdRenalen_Bot(client, message):
     global name
     bot_username = (await app.get_me()).username
-    bar = random.choice(caesar_responses).format(name=name)
+    bar = random.choice(The_Name_Bot).format(name=name)
     keyboard = InlineKeyboardMarkup([
         [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=True")]
     ])
@@ -46,3 +36,6 @@ async def caesar_bot(client, message):
         disable_web_page_preview=True,
         reply_markup=keyboard,
     parse_mode=enums.ParseMode.MARKDOWN)
+
+
+
