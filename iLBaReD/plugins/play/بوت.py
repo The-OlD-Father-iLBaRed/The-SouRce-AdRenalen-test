@@ -14,8 +14,6 @@ name = "ادرينالين"
 
 @app.on_message(filters.regex("تعيين اسم البوت")& filters.private & SUDOERS, group=7113)
 async def set_bot_name(client, message):
-    if await AdRenalen_SubScRip(message):
-            return
     global name
     ask = await app.ask(message.chat.id, "ارسل الاسم الجديد", timeout=300)
     name = ask.text
@@ -35,8 +33,6 @@ caesar_responses = [
 
 @app.on_message(filters.command(["بوت", "البوت"], ""), group=71135)
 async def caesar_bot(client, message):
-    if await AdRenalen_SubScRip(message):
-            return
     global name
     bot_username = (await app.get_me()).username
     bar = random.choice(caesar_responses).format(name=name)
