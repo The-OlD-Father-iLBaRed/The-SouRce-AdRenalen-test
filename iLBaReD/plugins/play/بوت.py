@@ -16,7 +16,7 @@ name = "ادرينالين"
 async def set_bot_name(client, message):
     global name
     ask = await app.ask(message.chat.id, "ارسل الاسم الجديد", timeout=300)
-    name = ask.text
+    name = ask
     await message.reply_text("تم تعيين الاسم بنجاح")
 
 caesar_responses = [
