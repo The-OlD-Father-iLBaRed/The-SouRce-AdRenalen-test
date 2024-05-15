@@ -12,8 +12,7 @@ from pyrogram import Client, filters
 from pydub import AudioSegment
 from os import remove
 
-
-@Client.on_message(filters.command(["اكتب$", "وش يقول$"], prefixes=".") & filters.group)
+@app.on_message(filters.regex("اكتب")& filters.group)
 async def speech_to_text(client, message):
     if not message.reply_to_message:
         await message.edit("قم بي الرد علي الصوت اولا")
