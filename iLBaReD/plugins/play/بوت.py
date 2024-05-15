@@ -12,12 +12,10 @@ Replay_Bot_Meseege = ["اسمي {name} يصحبي 💘 ⋅","يسطا قولتل
 ########################################
 bot_name = {}
 ########################################
-name = "ادرينالين"
+name = ""
 ########################################
 @app.on_message(filters.regex("تعيين اسم البوت")& filters.private & SUDOERS, group=7113)
 async def set_name_Bot(client, message):
-    if await AdRenalen_SubScRip(message):
-            return
     global name
     ask = await app.ask(message.chat.id, "ارسل الاسم الجديد", timeout=30)
     name = ask.text
