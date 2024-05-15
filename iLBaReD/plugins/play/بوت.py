@@ -15,7 +15,7 @@ name = ""
 @app.on_message(filters.regex("تعيين اسم البوت")& filters.private & SUDOERS, group=7113)
 async def set_name_Bot(client, message):
     global name
-    neame = await app.ask(message.chat.id, "ارسل الاسم الجديد", timeout=30)
+    neame = await app.ask(message.chat.id, "ارسل الاسم الجديد", filters=filters.text, timeout=30)
     name = ask.text
     await message.reply_text("تم تعيين الاسم بنجاح")
 ########################################
@@ -31,11 +31,3 @@ async def Bot_Nem_AdRenalen(client, message):
         disable_web_page_preview=True,
         reply_markup=keyboard,
     parse_mode=enums.ParseMode.MARKDOWN)
-    
-@Client.on_message(filters.command("تعين اسم البوت", ""))
-async def set_bot(client: Client, message):
-   NAME = await client.ask(message.chat.id,"**♪ ارسل اسم البوت الجديد  💎 .**", filters=filters.text, timeout=30)
-   name = NAME.text
-   bot_username = client.me.username
-   await set_bot_name(bot_username, name)
-   await message.reply_text("**♪ تم تعين اسم البوت بنجاح  💎 .**")
