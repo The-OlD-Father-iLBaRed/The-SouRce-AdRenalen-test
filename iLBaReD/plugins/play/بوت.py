@@ -33,11 +33,6 @@ async def speech_to_text(client, message):
         text = f"فشل التعرف علي الكلام\n{e}"
     await message.edit(text)
     remove("recyad.wav")
-
-
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-
 async def is_heroku():
     return "heroku" in socket.getfqdn()
 
