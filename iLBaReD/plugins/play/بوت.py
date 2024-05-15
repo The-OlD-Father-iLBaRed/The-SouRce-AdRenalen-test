@@ -7,6 +7,41 @@ from pyrogram.types import (Message,InlineKeyboardButton,InlineKeyboardMarkup,Ca
 from pyrogram import filters, Client
 from iLBaReD import app
 from config import *
+import speech_recognition as sr
+from pyrogram import Client, filters
+from pydub import AudioSegment
+from os import remove
+
+
+@Client.on_message(filters.command(["اكتب$", "وش يقول$"], prefixes=".") & filters.group)
+async def speech_to_text(client, message):
+    if not message.reply_to_message:
+        await message.edit("قم بي الرد علي الصوت اولا")
+        return
+    await message.edit("جاري تحميل الصوت")
+    voice_down = await message.reply_to_message.download("./recyad.wav")
+    voice = sr.Recognizer()
+    await message.edit("جاري استخراج سورس الصوت")
+    sound = AudioSegment.from_ogg(voice_down)
+    wav_file = sound.export(voice_down, format="wav")
+    with sr.AudioFile(wav_file) as source:
+        audio_source = voice.record(source)
+    await message.edit("جاري التعرف علي الكلام")
+    try:
+        text = voice.recognize_google(audio_source, language= ar-EG )
+    except Exception as e:
+        text = f"فشل التعرف علي الكلام\n{e}"
+    await message.edit(text)
+    remove("recyad.wav")
+
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+async def is_heroku():
+    return "heroku" in socket.getfqdn()
+
+
 
 AdRenalen_Bot={}
 
@@ -36,6 +71,4 @@ async def AdRenalen_Bot(client, message):
         disable_web_page_preview=True,
         reply_markup=keyboard,
     parse_mode=enums.ParseMode.MARKDOWN)
-
-
 
