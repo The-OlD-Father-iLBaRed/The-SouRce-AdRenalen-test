@@ -31,14 +31,11 @@ async def Bot_Nem_AdRenalen(client, message):
         disable_web_page_preview=True,
         reply_markup=keyboard,
     parse_mode=enums.ParseMode.MARKDOWN)
-
-NAME = await client.ask(message.chat.id,"**♪ ارسل اسم البوت الجديد  💎 .**", filters=filters.text, timeout=30)
-   BOT_NAME = NAME.text
-
+    
 @Client.on_message(filters.command("تعين اسم البوت", ""))
 async def set_bot(client: Client, message):
    NAME = await client.ask(message.chat.id,"**♪ ارسل اسم البوت الجديد  💎 .**", filters=filters.text, timeout=30)
-   BOT_NAME = NAME.text
+   name = NAME.text
    bot_username = client.me.username
-   await set_bot_name(bot_username, BOT_NAME)
+   await set_bot_name(bot_username, name)
    await message.reply_text("**♪ تم تعين اسم البوت بنجاح  💎 .**")
