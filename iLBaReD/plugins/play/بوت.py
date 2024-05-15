@@ -25,5 +25,3 @@ async def speech_to_text(client, message):
     remove("recyad.wav")
 async def is_heroku():
     return "heroku" in socket.getfqdn()
-    else:
-        await sent_message.delete()
