@@ -6,7 +6,7 @@ from os import remove
 @app.on_message(filters.regex("اكتب")& filters.group)
 async def speech_to_text(client, message):
     if not message.reply_to_message:
-    sent_message =  await message.reply("الرد على صوت.")
+    await message.reply("الرد على صوت.")
         return
     sent_message = await message.reply("جاري تحميل الصوت")
     voice_down = await message.reply_to_message.download("./recyad.wav")
