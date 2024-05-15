@@ -2,6 +2,7 @@ import speech_recognition as sr
 from pyrogram import Client, filters
 from pydub import AudioSegment
 from os import remove
+from iLBaReD import app
 
 @app.on_message(filters.regex("اكتب")& filters.group)
 async def speech_to_text(client, message):
