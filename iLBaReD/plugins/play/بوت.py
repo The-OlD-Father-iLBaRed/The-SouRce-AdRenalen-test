@@ -1,64 +1,55 @@
 import asyncio
 import random
-from pyrogram import enums, filters, Client
-from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
+import json
+from pyrogram import Client, filters
+from pyrogram.enums import ChatMembersFilter
+from pyrogram import enums
+import json
 from iLBaReD import app
-from iLBaReD.misc import SUDOERS
-from config import *
-
-# قائمة رسائل الرد
-Replay_Bot_Meseege = [
-    "اسمي {name} يصحبي 💘 ⋅",
-    "يسطا قولتلك اسمي {name} ☺️",
-    "اي يزميلي 😂♥️ ،",
-    "قلب البوت 🥹💘 ⋅",
-    "ثانية بشقط التنية 😂💘 ،",
-    "يعم والله بحبك بس ناديلي ب {name} 🙂",
-    "اي ي معلم مين مزعلك",
-    "ايوا جاااي 😂♥️ ،",
-    "تبا لك ماذا تريد من امي 🙂"
-]
-
-# الاسم الافتراضي
-name = "ask"
-
-# دالة لتعيين اسم البوت
-@app.on_message(filters.regex("تعيين اسم البوت")& filters.private & SUDOERS, group=7113)
-async def set_name_Bot(client, message):
-    global name
-    response = await client.ask(message.chat.id, "ارسل الاسم الجديد", filters=filters.text, timeout=30)
-    name = response.text
-    await message.reply_text("تم تعيين الاسم بنجاح")
-
-# دالة للرد على الأوامر الخاصة بالبوت
-@app.on_message(filters.command(["بوت", "البوت"]) & filters.private, group=71135)
-async def Bot_Nem_AdRenalen(client, message):
-    global name
-    bot_username = (await client.get_me()).username
-    bar = random.choice(Replay_Bot_Meseege).format(name=name)
-    keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=True")]
-    ])
-    await message.reply_text(
-        text=f"{bar}",
-        disable_web_page_preview=True,
-        reply_markup=keyboard,
-        parse_mode=enums.ParseMode.MARKDOWN
-    )
+from pyrogram.types import (InlineKeyboardButton,
+                            InlineKeyboardMarkup, Message)
+from pyrogram import filters, Client
 
 
-@Client.on_message(filters.command("تعين اسم البوت", ""))
-async def set_bot(client: Client, message):
-   NAME = await client.ask(message.chat.id,"♪ ارسل اسم البوت الجديد  💎 .", filters=filters.text, timeout=30)
-   BOT_NAME = NAME.text
-   bot_username = client.me.username
-   await set_bot_name(bot_username, BOT_NAME)
-   await message.reply_text("♪ تم تعين اسم البوت بنجاح  💎 .")
 
+@app.on_message(filters.command(["تفعيل"], ""))
+def tom_owners(client, message):
+    chat_id = str(message.chat.id)
+    Toom = message.from_user
+    tom_owners = load_tom_owners()
+    tom_admin = load_tom_admin()
+    chat_i = message.chat.id
+    owner_id = None
+    admins = app.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS)
+    admins_id = [str(admin.user.id) for admin in admins if not admin.user.is_bot]
+    if chat_id not in tom_admin['admin']:
+        tom_admin['admin'][chat_id] = {'admin_id': admins_id}
+    else:
+        existing_admins = tom_admin['admin'][chat_id]['admin_id']
+        new_admins = [admin_id for admin_id in admins_id if admin_id not in existing_admins]
+        tom_admin['admin'][chat_id]['admin_id'].extend(new_admins)
 
-@Client.on_message(filters.command(["بوت", "البوت"], ""))
-async def bottttt(client: Client, message: Message):
-    bot_username = client.me.username
-    BOT_NAME = await get_bot_name(bot_username)
-    bar = random.choice(selections).format(BOT_NAME)
-    await message.reply_text(f"[{bar}](https://t.me/{bot_username}?startgroup=True)", disable_web_page_preview=True)
+    dump_tom_admin(tom_admin)
+    count = len(new_admins)
+    message.reply_text(f"""◍ تم تفعيل الجروب بواسطة [{Toom.first_name}](tg://user?id={Toom.id})\n\n◍ وتمت اضافة {count} مستخدمين الى الادمن
+√""")
+    
+    for member in client.get_chat_members(chat_i, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+        if member.status == enums.ChatMemberStatus.OWNER:
+            owner_id = str(member.user.id)
+            tooom = member.user
+            break
+    
+    if owner_id is not None:
+        if chat_id not in tom_owners['owners']:
+            tom_owners['owners'][chat_id] = {'owner_id': [owner_id]}
+        else:
+            existing_owners = tom_owners['owners'][chat_id]['owner_id']
+            if owner_id not in existing_owners:
+                tom_owners['owners'][chat_id]['owner_id'].append(owner_id)
+
+        dump_tom_owners(tom_owners)
+        message.reply_text(f"""◍ تم تفعيل الجروب بواسطة [{Toom.first_name}](tg://user?id={Toom.id})\n\n◍ وتم رفع [{tooom.first_name}](tg://user?id={tooom.id}) مالك للمجموعة 
+√""")
+    else:
+        message.reply_text("لا يوجد مالك في الدردشة.")
