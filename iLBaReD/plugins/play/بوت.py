@@ -1,7 +1,7 @@
 import asyncio
 import random
 from pyrogram import enums, filters, Client
-from pyrogram.types import (Message, InlineKeyboardButton, InlineKeyboardMarkup)
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from iLBaReD import app
 from iLBaReD.misc import SUDOERS
 from config import *
@@ -23,18 +23,18 @@ Replay_Bot_Meseege = [
 name = "هههههه"
 
 # دالة لتعيين اسم البوت
-@app.on_message(filters.regex("تعيين اسم البوت") & filters.private & SUDOERS, group=7113)
+@app.on_message(filters.regex("تعيين اسم البوت") & filters.private & filters.user(SUDOERS), group=7113)
 async def set_name_Bot(client, message):
     global name
-    response = await app.ask(message.chat.id, "ارسل الاسم الجديد", filters=filters.text, timeout=30)
+    response = await client.ask(message.chat.id, "ارسل الاسم الجديد", filters=filters.text, timeout=30)
     name = response.text
     await message.reply_text("تم تعيين الاسم بنجاح")
 
 # دالة للرد على الأوامر الخاصة بالبوت
-@app.on_message(filters.command(["بوت", "البوت"], "") & filters.private, group=71135)
+@app.on_message(filters.command(["بوت", "البوت"]) & filters.private, group=71135)
 async def Bot_Nem_AdRenalen(client, message):
     global name
-    bot_username = (await app.get_me()).username
+    bot_username = (await client.get_me()).username
     bar = random.choice(Replay_Bot_Meseege).format(name=name)
     keyboard = InlineKeyboardMarkup([
         [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=True")]
@@ -45,5 +45,3 @@ async def Bot_Nem_AdRenalen(client, message):
         reply_markup=keyboard,
         parse_mode=enums.ParseMode.MARKDOWN
     )
-
-# داله للدمج و المركدون
