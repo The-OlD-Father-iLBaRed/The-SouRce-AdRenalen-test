@@ -20,7 +20,7 @@ Replay_Bot_Meseege = [
 ]
 
 # الاسم الافتراضي
-name = "هههههه"
+name = "ask"
 
 # دالة لتعيين اسم البوت
 @app.on_message(filters.regex("تعيين اسم البوت") & filters.private & filters.user(SUDOERS), group=7113)
