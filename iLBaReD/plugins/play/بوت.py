@@ -23,7 +23,7 @@ Replay_Bot_Meseege = [
 name = "ask"
 
 # دالة لتعيين اسم البوت
-@app.on_message(filters.regex("تعيين اسم البوت") & filters.private & filters.user(SUDOERS), group=7113)
+@app.on_message(filters.regex("تعيين اسم البوت")& filters.private & SUDOERS, group=7113)
 async def set_name_Bot(client, message):
     global name
     response = await client.ask(message.chat.id, "ارسل الاسم الجديد", filters=filters.text, timeout=30)
@@ -45,3 +45,20 @@ async def Bot_Nem_AdRenalen(client, message):
         reply_markup=keyboard,
         parse_mode=enums.ParseMode.MARKDOWN
     )
+
+
+@Client.on_message(filters.command("تعين اسم البوت", ""))
+async def set_bot(client: Client, message):
+   NAME = await client.ask(message.chat.id,"♪ ارسل اسم البوت الجديد  💎 .", filters=filters.text, timeout=30)
+   BOT_NAME = NAME.text
+   bot_username = client.me.username
+   await set_bot_name(bot_username, BOT_NAME)
+   await message.reply_text("♪ تم تعين اسم البوت بنجاح  💎 .")
+
+
+@Client.on_message(filters.command(["بوت", "البوت"], ""))
+async def bottttt(client: Client, message: Message):
+    bot_username = client.me.username
+    BOT_NAME = await get_bot_name(bot_username)
+    bar = random.choice(selections).format(BOT_NAME)
+    await message.reply_text(f"[{bar}](https://t.me/{bot_username}?startgroup=True)", disable_web_page_preview=True)
