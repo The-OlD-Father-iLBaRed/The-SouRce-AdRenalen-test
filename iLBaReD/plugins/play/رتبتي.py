@@ -6,9 +6,8 @@ import config
 from iLBaReD import app
 from os import getenv
 
-
 @app.on_message(filters.command(["رتبتي"], ""))
-def RotBte(client: Client, message: Message):
+def RotBte(client, message):
   chat_id = message.chat.id
   user_id = message.from_user.id
   rank = app.get_chat_member(chat_id, user_id)
