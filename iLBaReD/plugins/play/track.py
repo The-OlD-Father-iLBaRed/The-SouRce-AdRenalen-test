@@ -2,7 +2,7 @@ import time
 import asyncio
 from config import OWNER_ID
 from pyrogram import Client, filters
-from AnonXMusic import app
+from iLBaReD import app
 import random
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait
