@@ -23,7 +23,7 @@ from pyrogram import filters, Client
         
 @app.on_message(filters.command(["رفع منشئ اساسي"], ""))
 def promote_basic_creator(client, message):
-؟ششج    if message.reply_to_message and message.reply_to_message.from_user:
+    if message.reply_to_message and message.reply_to_message.from_user:
         target = message.reply_to_message.from_user.id
         user_id = str(target)
     elif message.reply_to_message is None:
