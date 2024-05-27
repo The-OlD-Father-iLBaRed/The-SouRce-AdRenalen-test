@@ -13,6 +13,7 @@ pillow
 psutil
 redis
 py-tgcalls==0.9.7
+asSQL
 pykeyboard
 gTTS
 pyrogram==2.0.106
