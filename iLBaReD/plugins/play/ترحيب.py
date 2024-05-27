@@ -29,7 +29,7 @@ def welcome(app,message):
 
 
 @app.on_message(filters.new_chat_members, group=7130)
-async def welcome(client: Client, message: Message):
+async def welcome(client, message):
     x = []
     async for m in app.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
         if m.status == ChatMemberStatus.OWNER:
@@ -51,7 +51,7 @@ async def welcome(client: Client, message: Message):
             
             
 @app.on_message(filters.left_chat_member, group=7130)
-async def goodbye(client: Client, message: Message):
+async def goodbye(client, message):
     x = []
     async for m in app.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
         if m.status == ChatMemberStatus.OWNER:
