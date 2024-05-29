@@ -37,7 +37,7 @@ async def welcome(client: Client, message: Message):
 
 
 @app.on_message(filters.command("وقت انضمامي"), group=701129011)
-async def timeadd(client: Client, message: Message):
+async def timeadd(app, message):
     user_joined = await client.get_chat_member(message.chat.id, message.from_user.id)
     join_date = user_joined.date.strftime("%Y-%m-%d")
     join_time = user_joined.date.strftime("%H:%M:%S")
