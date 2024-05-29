@@ -60,8 +60,6 @@ async def god_bay(client: Client, message: Message):
 
 
 
-     
-
 @app.on_message(~filters.private & command(["/gdata","فحص الجروب"]), group=2)
 async def instatus(app, message):
     photo = await app.download_media(message.chat.photo.big_file_id)
@@ -70,9 +68,8 @@ async def instatus(app, message):
     count = await app.get_chat_members_count(message.chat.id)
     if user.status in (
         enums.ChatMemberStatus.ADMINISTRATOR,
-        enums.ChatMemberStatus.OWNER,
-    ):
-        sent_message = await message.reply_text("جاري تجميع البينات 💘 ⋅")
+        enums.ChatMemberStatus.OWNER,):
+        sent_message_data = await message.reply_text("جاري تجميع البينات 💘 ⋅")
         deleted_acc = 0
         premium_acc = 0
         banned = 0
@@ -94,14 +91,17 @@ async def instatus(app, message):
         timelog = "{:.2f}".format(end_time - start_time)
         await message.reply_photo(photo=photo, caption=f"""
 ╭─《 • ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ • 》
-├ -᚜ - اسم الـ جروب » ⦗ {message.chat.title} ⦘ 💘 ⋅ 
-├ -᚜ - عدد الـ اعضاء » ⦗ {count} ⦘ 💘 ⋅ 
-├ -᚜ - عدد الـ بوتات »  ⦗ {bot} ⦘ 💘 ⋅
-├ -᚜ - عدد الـ حسبات الـ محذوفه » ⦗ {deleted_acc} ⦘ 💘 ⋅ 
-├ -᚜ - عدد الـ مطرودين » ⦗ {banned} ⦘ 💘 ⋅
-├ -᚜ - عدد الاغنية الي موثقين هنا » ⦗ {premium_acc} ⦘ 😂💘 ⋅
+├<b> -᚜ - اسم الـ جروب » ⦗ {message.chat.title} ⦘ 💘 ⋅</b>
+├<b> -᚜ - عدد الـ اعضاء » ⦗ {count} ⦘ 💘 ⋅</b>
+├<b> -᚜ - عدد الـ بوتات »  ⦗ {bot} ⦘ 💘 ⋅</b>
+├<b> -᚜ - عدد الـ حسبات الـ محذوفه » ⦗ {deleted_acc} ⦘ 💘 ⋅</b>
+├<b> -᚜ - عدد الـ مطرودين » ⦗ {banned} ⦘ 💘 ⋅</b>
+├<b> -᚜ - عدد الاغنية الي موثقين هنا » ⦗ {premium_acc} ⦘ 😂💘 ⋅</b>
 ╰─《 • ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ • 》""")
     else:
         sent_message = await message.reply_text("يمكن للمسؤولين فقط!")
         await sleep(5)
+        await sent_message_data.delete()
         await sent_message.delete()
+
+
