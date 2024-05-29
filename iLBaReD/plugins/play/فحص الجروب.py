@@ -69,7 +69,6 @@ async def instatus(app, message):
     if user.status in (
         enums.ChatMemberStatus.ADMINISTRATOR,
         enums.ChatMemberStatus.OWNER,):
-        sent_message_data = await message.reply_text("جاري تجميع البينات 💘 ⋅")
         deleted_acc = 0
         premium_acc = 0
         banned = 0
@@ -101,7 +100,6 @@ async def instatus(app, message):
     else:
         sent_message = await message.reply_text("يمكن للمسؤولين فقط!")
         await sleep(5)
-        await sent_message_data.delete()
         await sent_message.delete()
 
 
