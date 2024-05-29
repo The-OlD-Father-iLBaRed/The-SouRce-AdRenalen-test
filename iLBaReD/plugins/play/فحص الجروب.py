@@ -51,3 +51,27 @@ async def instatus(app, message):
         await sent_message.delete()
 
 
+
+
+
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+import os
+from iLBaReD import app
+from config import *
+
+@app.on_message(~filters.private & command(["لوجو"]), group=2)
+async def instatus(app, message):
+    bot.send_message(message.chat.id,"send name")
+@app.on_message(func=lambda m:True)
+def photo(message):
+    try:
+    	
+    	url = f"https://bcassetcdn.com/asset/logo/ea509e1b-89eb-457b-810b-2f3d42cc6841/logo?v=5&text={message.text}"
+    	
+    	bot.send_photo(message.chat.id,url)
+    except:
+    	bot.send_message(message.chat.id,"تأكد من الاسم!")
+     
+print('run')
+bot.infinity_polling()
