@@ -50,7 +50,7 @@ async def mention_allvc(client, message):
 
         if usrnum == 1:
             txt = f"{usrtxt} {random.choice(The_TasRef)} 😋♥️ ،",
-        reply_markup=InlineKeyboardMarkup(
+        markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
