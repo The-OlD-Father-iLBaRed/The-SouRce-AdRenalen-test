@@ -26,7 +26,7 @@ from pyrogram.errors import FloodWait
 
 @app.on_message(filters.new_chat_members)
 async def welcome(client: Client, message: Message):
-    photo = await app.download_media(message.chat.photo.big_file_id)
+    photo = await client.download_media(message.chat.photo.big_file_id)
     usr = await client.get_chat(message.from_user.id)
     name = usr.first_name
     chat_id = message.chat.id
