@@ -35,11 +35,14 @@ async def welcome(client: Client, message: Message):
         m = await app.get_users(int(x[0]))
         chatid = message.chat.id
         photo = await client.download_media(message.chat.photo.big_file_id)
+        egypt_tz = timezone( Egypt )
+        current_time = datetime.datetime.now(egypt_tz).strftime("%H:%M:%S")    
+        date = message.date.strftime("%Y-%m-%d")
         bot_username = (await app.get_me()).username
         await app.send_photo(
             chatid, 
             photo=photo, 
-            caption=f"- نورت ياا قمر 🌗😘🤝️ {message.from_user.mention}\n│ \n└ʙʏ في {message.chat.title}",     
+            caption=f"لا تُسِئ اللفظ وإن ضَاق عليك الرَّد ♥️ -\nنورت جروبنا ي رايق ♥️ -\n\n-᚜ - اسمك » ⦗ {message.from_user.mention} ⦘ 😋♥️ ،\n-᚜ - يوزر نيم » ⦗ @{message.from_user.username} ⦘ 😋♥️ ،\n-᚜ - تاريخ الدخول » ⦗ {date} ⦘ 😋♥️ ،\n-᚜ - وقت الدخول » ⦗ {current_time} ⦘ 😋♥️ ،",     
             reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton("مـالـك الـجـروب⚡", url=f"https://t.me/{m.username}")], 
                 [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{app.username}?startgroup=True")]
@@ -62,5 +65,5 @@ async def goodbye(client: Client, message: Message):
             caption=f"- مشيت ليه يقلبي يلا بسلامات🥲👋\n│ \n└ʙʏ  {message.from_user.mention} ",     
             reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton("مـالـك الـجـروب⚡", url=f"https://t.me/{m.username}")], 
-                [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{app.username}?startgroup=True")]
+                [InlineKeyboardButton("خدني  لجروبك والنبي🥺♥", url=f"https://t.me/{app.username}?startgroup=True")]
             ]))
