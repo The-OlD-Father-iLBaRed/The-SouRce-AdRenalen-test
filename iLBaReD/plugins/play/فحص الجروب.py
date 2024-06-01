@@ -59,7 +59,7 @@ async def mention_allvc(client, message):
             ],
         parse_mode=enums.ParseMode.MARKDOWN)
 
-            await client.send_message(chat_id, txt)
+            await app.send_message(chat_id, txt)
             await asyncio.sleep(14400)
             usrnum = 0
             usrtxt = ""
