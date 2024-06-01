@@ -33,4 +33,4 @@ async def welcome(client: Client, message: Message):
     egypt_tz = timezone('Egypt')
     current_time = datetime.datetime.now(egypt_tz).strftime("%H:%M:%S")    
     date = message.date.strftime("%Y-%m-%d")
-    await app.send_message(chat_id=chat_id, text=f"لا تُسِئ اللفظ وإن ضَاق عليك الرَّد ♥️"\nنورت جروبنا ي رايق ♥️"\n\n-᚜ - اسمك » ⦗ {message.from_user.mention} ⦘ 😋♥️ ،\n-᚜ - يوزر نيم » ⦗ @{message.from_user.username} ⦘ 😋♥️ ،\n-᚜ - تاريخ الدخول » ⦗ {date} ⦘ 😋♥️ ،\n-᚜ - وقت الدخول » ⦗ {current_time} ⦘ 😋♥️ ،")
+    await app.send_photo(chatid,photo=photo, f"لا تُسِئ اللفظ وإن ضَاق عليك الرَّد ♥️"\nنورت جروبنا ي رايق ♥️"\n\n-᚜ - اسمك » ⦗ {message.from_user.mention} ⦘ 😋♥️ ،\n-᚜ - يوزر نيم » ⦗ @{message.from_user.username} ⦘ 😋♥️ ،\n-᚜ - تاريخ الدخول » ⦗ {date} ⦘ 😋♥️ ،\n-᚜ - وقت الدخول » ⦗ {current_time} ⦘ 😋♥️ ،")
