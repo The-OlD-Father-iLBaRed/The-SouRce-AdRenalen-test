@@ -24,13 +24,43 @@ from asyncio import gather
 from pyrogram.errors import FloodWait
 
 
-@app.on_message(filters.new_chat_members)
+
+@app.on_message(filters.new_chat_members, group=7130)
 async def welcome(client: Client, message: Message):
-    photo = await client.download_media(message.chat.photo.big_file_id)
-    usr = await client.get_chat(message.from_user.id)
-    name = usr.first_name
-    chat_id = message.chat.id
-    egypt_tz = timezone( Egypt )
-    current_time = datetime.datetime.now(egypt_tz).strftime("%H:%M:%S")    
-    date = message.date.strftime("%Y-%m-%d")
-    await app.send_photo(chatid,photo=photo, f"لا تُسِئ اللفظ وإن ضَاق عليك الرَّد ♥️ -\nنورت جروبنا ي رايق ♥️ -\n\n-᚜ - اسمك » ⦗ {message.from_user.mention} ⦘ 😋♥️ ،\n-᚜ - يوزر نيم » ⦗ @{message.from_user.username} ⦘ 😋♥️ ،\n-᚜ - تاريخ الدخول » ⦗ {date} ⦘ 😋♥️ ،\n-᚜ - وقت الدخول » ⦗ {current_time} ⦘ 😋♥️ ،")
+    x = []
+    async for m in app.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+        if m.status == ChatMemberStatus.OWNER:
+            x.append(m.user.id)
+    if len(x) != 0:        
+        m = await app.get_users(int(x[0]))
+        chatid = message.chat.id
+        photo = await client.download_media(message.chat.photo.big_file_id)
+        bot_username = (await app.get_me()).username
+        await app.send_photo(
+            chatid, 
+            photo=photo, 
+            caption=f"- نورت ياا قمر 🌗😘🤝️ {message.from_user.mention}\n│ \n└ʙʏ في {message.chat.title}",     
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton("مـالـك الـجـروب⚡", url=f"https://t.me/{m.username}")], 
+                [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{app.username}?startgroup=True")]
+            ]))
+
+❤︎ ،@app.on_message(filters.left_chat_member, group=7130)
+async def goodbye(client: Client, message: Message):
+    x = []
+    async for m in app.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+        if m.status == ChatMemberStatus.OWNER:
+            x.append(m.user.id)
+    if len(x) != 0:        
+        m = await app.get_users(int(x[0]))
+        chatid = message.chat.id
+        photo = await client.download_media(message.chat.photo.big_file_id)
+        bot_username = (await app.get_me()).username
+        await app.send_photo(
+            chatid, 
+            photo=photo, 
+            caption=f"- مشيت ليه يقلبي يلا بسلامات🥲👋\n│ \n└ʙʏ  {message.from_user.mention} ",     
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton("مـالـك الـجـروب⚡", url=f"https://t.me/{m.username}")], 
+                [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{app.username}?startgroup=True")]
+            ]))
