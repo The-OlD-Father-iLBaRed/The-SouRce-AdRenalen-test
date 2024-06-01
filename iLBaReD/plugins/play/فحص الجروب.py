@@ -56,8 +56,7 @@ async def mention_allvc(client, message):
                     InlineKeyboardButton(
                         usr.user.first_name, url=f"https://t.me/{usrtxt}"),
                 ],
-            ],),
-        parse_mode=enums.ParseMode.MARKDOWN)
+            ],parse_mode=enums.ParseMode.MARKDOWN)
             await app.send_message(chat_id, txt)
             await asyncio.sleep(14400)
             usrnum = 0
