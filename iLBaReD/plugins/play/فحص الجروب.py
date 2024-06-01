@@ -49,14 +49,7 @@ async def mention_allvc(client, message):
         usrtxt += f"[{usr.user.first_name}](tg://user?id={usr.user.id})"
 
         if usrnum == 1:
-            txt = f"{usrtxt} {random.choice(The_TasRef)} 😋♥️ ،",
-        markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        usr.user.first_name, url=f"https://t.me/{usrtxt}"),
-                ],
-            ],parse_mode=enums.ParseMode.MARKDOWN)
+            txt = f"{usrtxt} {random.choice(The_TasRef)} 😋♥️ ،"
             await app.send_message(chat_id, txt)
             await asyncio.sleep(14400)
             usrnum = 0
