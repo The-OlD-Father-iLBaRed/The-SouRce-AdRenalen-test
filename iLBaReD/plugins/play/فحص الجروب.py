@@ -45,7 +45,7 @@ async def welcome(client: Client, message: Message):
                 [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{app.username}?startgroup=True")]
             ]))
 
-❤︎ ،@app.on_message(filters.left_chat_member, group=7130)
+@app.on_message(filters.left_chat_member, group=7130)
 async def goodbye(client: Client, message: Message):
     x = []
     async for m in app.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
