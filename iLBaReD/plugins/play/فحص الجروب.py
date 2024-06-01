@@ -1,5 +1,6 @@
 from iLBaReD import app 
 import asyncio
+from pyrogram import enums
 import random
 from pyrogram import Client, filters
 from pyrogram.enums import ChatType, ChatMemberStatus
@@ -56,9 +57,7 @@ async def mention_allvc(client, message):
                         usr.user.first_name, url=f"https://t.me/{usrtxt}"),
                 ],
             ]
-        ),
-        parse_mode=enums.ParseMode.MARKDOWN
-    )
+        parse_mode=enums.ParseMode.MARKDOWN)
 
             await client.send_message(chat_id, txt)
             await asyncio.sleep(14400)
