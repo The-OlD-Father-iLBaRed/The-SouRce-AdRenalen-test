@@ -40,8 +40,8 @@ async def tiktok_video(client, message):
     mc = message.chat.id
     url = "https://www.tikwm.com/api/?url={}".format(query)
     res = requests.get(url).json()
-    video = res[ data ][ play ]
-    title = res[ data ][ title ]
+    video = res[ title ][ play ]
+    title = res[ play ][ title ]
     share = InlineKeyboardMarkup(
         [
             [
