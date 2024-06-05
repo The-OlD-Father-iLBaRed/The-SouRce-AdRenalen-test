@@ -40,37 +40,27 @@ async def tiktok_video(client, message):
     mc = message.chat.id
     url = "https://www.tikwm.com/api/?url={}".format(query)
     res = requests.get(url).json()
-    video = res[ title ][ play ]
-    title = res[ play ][ title ]
-    share = InlineKeyboardMarkup(
+    video = res[ data ][ play ]
+    title = res[ data ][ title ]
+    share = InlineKeyboardMarkup([
         [
-            [
-                    InlineKeyboardButton(
-                        "‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/WA_AdRenalen"), 
-                    InlineKeyboardButton(
-                        "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/BAR_ADRENALEN"),
-                ],[
-                    InlineKeyboardButton(
-                        "- مشاركة الفديو 😋♥️ ،", url='https://t.me/share/url?url={}'.format(query)),
-            ]
+            InlineKeyboardButton("- مشاركه .", url= https://t.me/share/url?url={} .format(query))
         ]
-         ),
+    ])
     await message.reply_video(
         video=video,
-        caption='• ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ •\n#عمر_ادرينالين {}'.format(title),
+        caption= • ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ •\n#عمر_ادرينالين {} .format(title),
         reply_markup=InlineKeyboardMarkup(
-        [
             [
+                [
                     InlineKeyboardButton(
-                        "‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/WA_AdRenalen"), 
-                    InlineKeyboardButton(
-                        "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/BAR_ADRENALEN"),
-                ],[
-                    InlineKeyboardButton(
-                        "- مشاركة الفديو 😋♥️ ،", url='https://t.me/share/url?url={}'.format(query)),
+                        "• مشـاركـة •", url= https://t.me/share/url?url={} .format(query))
+                ],
             ]
-        ]
-         ),)
+        ),
+    )
+ 
+
  
 @app.on_message(filters.new_chat_members, group=7130)
 async def welcome(client: Client, message: Message):
