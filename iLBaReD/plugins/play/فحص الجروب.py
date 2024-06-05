@@ -34,22 +34,14 @@ from iLBaReD import app
 
 @app.on_message(filters.command(["تيك"], ""))
 async def tiktok_video(client, message):
-    reply = message.reply_to_message
-    if not reply:
-        return await message.reply("اعمل ريبلاي علي الرابط 😋♥️ ،")
-    if not reply.link:
-        return await message.reply("اعمل ريبلاي علي الرابط 😋♥️ ،")
-    try:
-        text = await message.reply("- جاري التحميل من التيك توك بدون علامة مائيه واعلا جوده 😋♥️ ،")
-        async def progress(current, total):
-            await text.edit_text(f"يتم تحميل الفديو ↬ ⦗ {current * 100 / total:.1f}% ⦘ 😋♥️ ،")
     query = " ".join(message.command[1:])
+    m = await message.reply_text("<b>⇜ جـارِ التحميـل مـن تيـك تـوك . . .</b>")
     idd = message.from_user.id
     mc = message.chat.id
     url = "https://www.tikwm.com/api/?url={}".format(query)
     res = requests.get(url).json()
-    video = res['data']['play']
-    title = res['data']['title']
+    video = res[ data ][ play ]
+    title = res[ data ][ title ]
     share = InlineKeyboardMarkup(
         [
             [
@@ -79,8 +71,7 @@ async def tiktok_video(client, message):
             ]
         ]
          ),)
-
-
+ 
 @app.on_message(filters.new_chat_members, group=7130)
 async def welcome(client: Client, message: Message):
     x = []
