@@ -30,105 +30,56 @@ from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
 from iLBaReD import app
-import subprocess
-try:
-    from TikTok import TikTok_dl as TK
-except ImportError:
-    os.system('pip install TikTok-dl')
-try:
-    import requests
-except ImportError:
-    os.system('pip install requests')
 
 
 @app.on_message(filters.command(["تيك"], ""))
 async def tiktok_video(client, message):
-    if message.text:
-        try:
-            global text,chatid,messageid,vd_status,wm_status,ad_status
-
-            if re.search(r'https://vm.tiktok.com/(.*?)/?k=1',message.text) or re.search(r'',message.text):
-                text = message.text
-
-                chatid = message.chat.id
-
-                messageid = message.message_id
-
-                vd_status = 'تحميل باعلئ دقه'
-
-                wm_status = 'تحميل بعلامه مائيه'
-
-                ad_status = 'تحميل كملف صوتي'
-
-                img = io.BytesIO(requests.get(TK(message.text).image).content)
-
-                keyboar = [
-                    [types.InlineKeyboardButton(vd_status,callback_data='vd'),types.InlineKeyboardButton(wm_status,callback_data='wm')],
-                    [types.InlineKeyboardButton(ad_status,callback_data='ad')]
-                ]
-
-                mark = types.InlineKeyboardMarkup(keyboard=keyboar)
-                
-                bot.send_photo(chatid,img,reply_markup=mark)
-        except:pass
-@app.callback_query_handler(func=(lambda call:True))
-def call(call):
-    global ad_status,vd_status,wm_status
-    if call.data == 'vd':
-        try:
-
-            bot.send_video(chatid,TK(text).nowatermark)
-            
-            vd_status = "تم التحميل"
-
-            keyboar = [
-                [types.InlineKeyboardButton(vd_status,callback_data='vd'),types.InlineKeyboardButton(wm_status,callback_data='wm')],
-                
-                [types.InlineKeyboardButton(ad_status,callback_data='ad')]
+    reply = message.reply_to_message
+    if not reply:
+        return await message.reply("اعمل ريبلاي علي الرابط 😋♥️ ،")
+    if not reply.link:
+    try:
+        text = await message.reply("- جاري التحميل من التيك توك بدون علامة مائيه واعلا جوده 😋♥️ ،")
+        async def progress(current, total):
+            await text.edit_text(f"يتم تحميل الفديو ↬ ⦗ {current * 100 / total:.1f}% ⦘ 😋♥️ ،")
+    query = " ".join(message.command[1:])
+    idd = message.from_user.id
+    mc = message.chat.id
+    url = "https://www.tikwm.com/api/?url={}".format(query)
+    res = requests.get(url).json()
+    video = res['data']['play']
+    title = res['data']['title']
+    share = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/WA_AdRenalen"), 
+                    InlineKeyboardButton(
+                        "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/BAR_ADRENALEN"),
+                ],[
+                    InlineKeyboardButton(
+                        "- مشاركة الفديو 😋♥️ ،", url='https://t.me/share/url?url={}'.format(query))
+                ],
             ]
-            
-            mark = types.InlineKeyboardMarkup(keyboard=keyboar)
-
-            bot.edit_message_reply_markup(call.from_user.id, call.message.message_id, reply_markup=mark)
-        except:pass
-    if call.data == 'ad':
-        try:
-            bot.send_audio(chatid,TK(text).audio)
-
-            ad_status = "تم التحميل"
-
-            keyboar = [
-                [types.InlineKeyboardButton(vd_status,callback_data='vd'),types.InlineKeyboardButton(wm_status,callback_data='wm')],
-                
-                [types.InlineKeyboardButton(ad_status,callback_data='ad')]
+        ),
+    )
+    await message.reply_video(
+        video=video,
+        caption='• ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ •\n#عمر_ادرينالين {}'.format(title),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/WA_AdRenalen"), 
+                    InlineKeyboardButton(
+                        "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/BAR_ADRENALEN"),
+                ],[
+                    InlineKeyboardButton(
+                        "- مشاركة الفديو 😋♥️ ،", url='https://t.me/share/url?url={}'.format(query))
+                ],
             ]
-
-            mark = types.InlineKeyboardMarkup(keyboard=keyboar)
-
-            bot.edit_message_reply_markup(call.from_user.id, call.message.message_id, reply_markup=mark)
-        except:pass
-    if call.data == 'wm':
-        try:
-            bot.send_video(chatid,TK(text).watermark)
-
-            wm_status = "تم التحميل"
-
-            keyboar = [
-                [types.InlineKeyboardButton(vd_status,callback_data='vd'),types.InlineKeyboardButton(wm_status,callback_data='wm')],
-                
-                [types.InlineKeyboardButton(ad_status,callback_data='ad')]
-            ]
-
-            mark = types.InlineKeyboardMarkup(keyboard=keyboar)
-
-            bot.edit_message_reply_markup(call.from_user.id, call.message.message_id, reply_markup=mark)
-        except:pass
-
-#حقوقي شرفك تغير تثبت مدئ فشلك
-#My rights, your honor has changed, to prove the extent of your failure 
-bot.infinity_polling()
- 
-
+        ),
+    )
 
 
 
