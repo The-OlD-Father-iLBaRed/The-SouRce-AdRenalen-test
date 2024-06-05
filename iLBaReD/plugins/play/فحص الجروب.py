@@ -43,31 +43,90 @@ except ImportError:
 
 @app.on_message(filters.command(["تيك"], ""))
 async def tiktok_video(client, message):
-    query = " ".join(message.command[1:])
-    m = await message.reply_text("<b>⇜ جـارِ التحميـل مـن تيـك تـوك . . .</b>")
-    idd = message.from_user.id
-    mc = message.chat.id
-    url = "https://www.tikwm.com/api/?url={}".format(query)
-    res = requests.get(url).json()
-    video = res['data']['play']
-    title = res['data']['title']
-    share = InlineKeyboardMarkup([
-        [
-            InlineKeyboardButton("- مشاركه .", url='https://t.me/share/url?url={}'.format(query))
-        ]
-    ])
-    await message.reply_video(
-        video=video,
-        caption='- {} .'.format(title),
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "• مشـاركـة •", url='https://t.me/share/url?url={}'.format(query))
-                ],
+    if message.text:
+        try:
+            global text,chatid,messageid,vd_status,wm_status,ad_status
+
+            if re.search(r'https://vm.tiktok.com/(.*?)/?k=1',message.text) or re.search(r'',message.text):
+                text = message.text
+
+                chatid = message.chat.id
+
+                messageid = message.message_id
+
+                vd_status = 'تحميل باعلئ دقه'
+
+                wm_status = 'تحميل بعلامه مائيه'
+
+                ad_status = 'تحميل كملف صوتي'
+
+                img = io.BytesIO(requests.get(TK(message.text).image).content)
+
+                keyboar = [
+                    [types.InlineKeyboardButton(vd_status,callback_data='vd'),types.InlineKeyboardButton(wm_status,callback_data='wm')],
+                    [types.InlineKeyboardButton(ad_status,callback_data='ad')]
+                ]
+
+                mark = types.InlineKeyboardMarkup(keyboard=keyboar)
+                
+                bot.send_photo(chatid,img,reply_markup=mark)
+        except:pass
+@app.callback_query_handler(func=(lambda call:True))
+def call(call):
+    global ad_status,vd_status,wm_status
+    if call.data == 'vd':
+        try:
+
+            bot.send_video(chatid,TK(text).nowatermark)
+            
+            vd_status = "تم التحميل"
+
+            keyboar = [
+                [types.InlineKeyboardButton(vd_status,callback_data='vd'),types.InlineKeyboardButton(wm_status,callback_data='wm')],
+                
+                [types.InlineKeyboardButton(ad_status,callback_data='ad')]
             ]
-        ),
-    )
+            
+            mark = types.InlineKeyboardMarkup(keyboard=keyboar)
+
+            bot.edit_message_reply_markup(call.from_user.id, call.message.message_id, reply_markup=mark)
+        except:pass
+    if call.data == 'ad':
+        try:
+            bot.send_audio(chatid,TK(text).audio)
+
+            ad_status = "تم التحميل"
+
+            keyboar = [
+                [types.InlineKeyboardButton(vd_status,callback_data='vd'),types.InlineKeyboardButton(wm_status,callback_data='wm')],
+                
+                [types.InlineKeyboardButton(ad_status,callback_data='ad')]
+            ]
+
+            mark = types.InlineKeyboardMarkup(keyboard=keyboar)
+
+            bot.edit_message_reply_markup(call.from_user.id, call.message.message_id, reply_markup=mark)
+        except:pass
+    if call.data == 'wm':
+        try:
+            bot.send_video(chatid,TK(text).watermark)
+
+            wm_status = "تم التحميل"
+
+            keyboar = [
+                [types.InlineKeyboardButton(vd_status,callback_data='vd'),types.InlineKeyboardButton(wm_status,callback_data='wm')],
+                
+                [types.InlineKeyboardButton(ad_status,callback_data='ad')]
+            ]
+
+            mark = types.InlineKeyboardMarkup(keyboard=keyboar)
+
+            bot.edit_message_reply_markup(call.from_user.id, call.message.message_id, reply_markup=mark)
+        except:pass
+
+#حقوقي شرفك تغير تثبت مدئ فشلك
+#My rights, your honor has changed, to prove the extent of your failure 
+bot.infinity_polling()
  
 
 
