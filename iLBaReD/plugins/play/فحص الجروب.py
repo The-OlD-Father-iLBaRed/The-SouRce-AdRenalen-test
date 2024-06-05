@@ -58,8 +58,8 @@ async def tiktok_video(client, message):
                         "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/BAR_ADRENALEN"),
                 ],[
                     InlineKeyboardButton(
-                        "- مشاركة الفديو 😋♥️ ،", url='https://t.me/share/url?url={}'.format(query))
-                ],
+                        "- مشاركة الفديو 😋♥️ ،", url='https://t.me/share/url?url={}'.format(query)),
+                ]
             ]
         ),
     )
@@ -67,20 +67,18 @@ async def tiktok_video(client, message):
         video=video,
         caption='• ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ •\n#عمر_ادرينالين {}'.format(title),
         reply_markup=InlineKeyboardMarkup(
+        [
             [
-                [
                     InlineKeyboardButton(
                         "‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/WA_AdRenalen"), 
                     InlineKeyboardButton(
                         "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/BAR_ADRENALEN"),
                 ],[
                     InlineKeyboardButton(
-                        "- مشاركة الفديو 😋♥️ ،", url='https://t.me/share/url?url={}'.format(query))
-                ],
+                        "- مشاركة الفديو 😋♥️ ،", url='https://t.me/share/url?url={}'.format(query)),
             ]
-        ),
-    )
-
+        ]
+         ),)
 
 
 @app.on_message(filters.new_chat_members, group=7130)
