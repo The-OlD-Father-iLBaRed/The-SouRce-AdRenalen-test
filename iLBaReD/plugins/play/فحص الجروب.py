@@ -30,6 +30,15 @@ from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
 from iLBaReD import app
+import subprocess
+try:
+    from TikTok import TikTok_dl as TK
+except ImportError:
+    os.system('pip install TikTok-dl')
+try:
+    import requests
+except ImportError:
+    os.system('pip install requests')
 
 
 @app.on_message(filters.command(["تيك"], ""))
