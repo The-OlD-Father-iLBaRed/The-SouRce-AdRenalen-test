@@ -50,19 +50,23 @@ async def tiktok_video(client, message):
     video = res['data']['play']
     title = res['data']['title']
     share = InlineKeyboardMarkup(
+        [
             [
-                [
+                    InlineKeyboardButton(
+                        " ‹ قناة السورس 💘 ⋅ › ", url=f"https://t.me/WA_AdRenalen"),
+                ],[
                     InlineKeyboardButton(
                         "‹ 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ›", url=f"https://t.me/WA_AdRenalen"), 
                     InlineKeyboardButton(
                         "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/BAR_ADRENALEN"),
                 ],[
                     InlineKeyboardButton(
-                        "- مشاركة الفديو 😋♥️ ،", url='https://t.me/share/url?url={}'.format(query)),
-                ]
+                        "• ⌯ اضف البوت الي مجموعتك او قناتك ♥️ ⌯ •", url=f"https://t.me/{app.username}?startgroup=true"),
             ]
-        ),
-    )
+        ]
+         ),
+     )
+
     await message.reply_video(
         video=video,
         caption='• ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ •\n#عمر_ادرينالين {}'.format(title),
