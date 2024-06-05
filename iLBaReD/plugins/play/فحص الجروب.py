@@ -49,7 +49,7 @@ async def tiktok_video(client, message):
     ])
     await message.reply_video(
         video=video,
-        caption= • ⌯ 𝐓𝐇𝐄.𝐒𝐎𝐔𝐑𝐂𝐄.𝐀𝐃𝐑𝐄𝐍𝐀𝐋𝐄𝐍 ⌯ •\n{} .format(title),
+        caption= - {} . .format(title),
         reply_markup=InlineKeyboardMarkup(
             [
                 [
