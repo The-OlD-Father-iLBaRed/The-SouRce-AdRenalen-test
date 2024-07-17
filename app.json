@@ -24,7 +24,7 @@
       },
       "BOT_TOKEN": {
         "description": "⦗ @Botfather ⦘ ↫ توكن البوت احصل عليه من هنا",
-        "value": "",
+        "value": "690c0394fc7bf850afd91ab0f66160b2",
         "required": true
       },
       "MONGO_DB_URI": {
@@ -39,7 +39,7 @@
       },
       "STRING_SESSION": {
         "description": "⦗ @SeSsion_1_bot ⦘ ↫ كود جلسه للحساب المساعد بايرو جرام 2",
-        "value": "",
+        "value": "BAGVXXUAgO5DSUoJaIsrBcYfDZgcZ11JAuzAcYGGkZgQzRX9Rkyl8LopBbbsb59FIQApgdUpGAWRkaXxrYEJPf6fOuvR5171P-0m252VrFwZEkJQP4T8ttVO5yFz29Kqmz2LedWrPTW3hkIonWT4PeebusVNOdK6zQyAPfGYFtLDXtl59ldFehxw2e_vI90Sw-tQgfQ-VuqfrMJU16FwVx7xzSNhRB_8C1nbNmlRv5bkE14lKOD7M3iUnUw_nJyJ8mtjrQrcurtYaXOrnZuPxFIGAELY9QGRZehz4RjBVrtNg__LhftSE72TJAEhcsn31NDMMuFlaOuCBX29wvavz4iHbzt1CAAAAAFzh3jMAA",
         "required": true
       },
       "HEROKU_API_KEY": {
