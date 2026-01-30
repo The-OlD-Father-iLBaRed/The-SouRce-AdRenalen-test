@@ -1,18 +1,4 @@
-# الأساسيات
 aiofiles
-aiohttp
-asyncio
-python-dotenv
-pyyaml
-requests
-numpy
-pytz
-psutil
-
-# التيليجرام والميوزك (إصدارات متوافقة)
-pyrogram==2.0.106
-tgcrypto
-pyromod~=1.5aiofiles
 aiohttp
 asyncio
 python-dotenv
@@ -41,40 +27,6 @@ unidecode
 yt-dlp
 youtube-search-python
 youtube-search
-gitpython
-heroku3
-pillow
-redis
-asSQL
-pykeyboard
-speedtest-cli
-spotipy
-enums
-py-tgcalls==0.9.7
-ffmpeg-python
-pydub
-hachoir
-gTTS
-SpeechRecognition
-
-# قاعدة البيانات (الحل الأكيد)
-pymongo==3.12.3
-motor==2.5.1
-dnspython
-
-# خدمات الويب (تم حذف googletrans لمنع التضارب)
-beautifulsoup4
-telegraph
-gpytranslate
-Translator
-unidecode
-
-# التحميل والبحث (الأسماء العادية أضمن في Railway)
-yt-dlp
-youtube-search-python
-youtube-search
-
-# أدوات إضافية
 gitpython
 heroku3
 pillow
