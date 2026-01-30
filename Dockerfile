@@ -1,12 +1,23 @@
-FROM nikolaik/python-nodejs:python3.10-nodejs19
+# استخدام نسخة أحدث ومستقرة تدعم بايثون ونود
+FROM node:18-bullseye
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends ffmpeg \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# تثبيت بايثون والأدوات اللازمة
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    ffmpeg \
+    git \
+    && apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-COPY . /app/
+# تحديد مسار العمل
 WORKDIR /app/
+
+# نسخ الملفات للمجلد
+COPY . /app/
+
+# تثبيت مكتبات بايثون وتحديثها
 RUN pip3 install --no-cache-dir -U -r requirements.txt
 
-CMD bash start
+# أمر التشغيل
+CMD ["bash", "start"]
