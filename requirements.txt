@@ -1,4 +1,4 @@
-# الأساسيات والتعامل مع الملفات
+# الأساسيات
 aiofiles
 aiohttp
 asyncio
@@ -9,12 +9,10 @@ numpy
 pytz
 psutil
 
-# مكتبة التيليجرام (إصدار مستقر ومتوافق مع الميوزك)
+# التيليجرام والميوزك (إصدارات متوافقة)
 pyrogram==2.0.106
 tgcrypto
 pyromod~=1.5
-
-# التعامل مع الصوت والفيديو (مهم جداً للميوزك)
 py-tgcalls==0.9.7
 ffmpeg-python
 pydub
@@ -22,25 +20,22 @@ hachoir
 gTTS
 SpeechRecognition
 
-# قاعدة البيانات (تم التعديل لحل مشكلة _QUERY_OPTIONS)
+# قاعدة البيانات (الحل الأكيد)
 pymongo==3.12.3
 motor==2.5.1
 dnspython
 
-# خدمات الويب والترجمة
+# خدمات الويب (تم حذف googletrans لمنع التضارب)
 beautifulsoup4
 telegraph
-googletrans==3.1.0a0
 gpytranslate
 Translator
 unidecode
 
-# أدوات التحميل والبحث (روابط مباشرة لضمان أحدث نسخة)
+# التحميل والبحث (الأسماء العادية أضمن في Railway)
 yt-dlp
-git+https://github.com/alexmercerind/youtube-search-python@main
-git+https://github.com/joetats/youtube_search@master
-youtube-search
 youtube-search-python
+youtube-search
 
 # أدوات إضافية
 gitpython
