@@ -39,7 +39,7 @@
       },
       "STRING_SESSION": {
         "description": "⦗ @SeSsion_1_bot ⦘ ↫ كود جلسه للحساب المساعد بايرو جرام 2",
-        "value": "BAGVXXUAgO5DSUoJaIsrBcYfDZgcZ11JAuzAcYGGkZgQzRX9Rkyl8LopBbbsb59FIQApgdUpGAWRkaXxrYEJPf6fOuvR5171P-0m252VrFwZEkJQP4T8ttVO5yFz29Kqmz2LedWrPTW3hkIonWT4PeebusVNOdK6zQyAPfGYFtLDXtl59ldFehxw2e_vI90Sw-tQgfQ-VuqfrMJU16FwVx7xzSNhRB_8C1nbNmlRv5bkE14lKOD7M3iUnUw_nJyJ8mtjrQrcurtYaXOrnZuPxFIGAELY9QGRZehz4RjBVrtNg__LhftSE72TJAEhcsn31NDMMuFlaOuCBX29wvavz4iHbzt1CAAAAAFzh3jMAA",
+        "value": "BAJC1RwAK1ZNPxq-LkVEILDecj0dDNn14Y2-vfZOmPQRqRlSIUfY-F87JOGwwUlWkFhWM2z3Eoq7uZDa1AvMZH-OBWo9jk0FNCxnjG3iPnBrBZJn-R-7YM7xaZfP7PeUaMm-_f5U7ExLVfpimw-q4VagrQvtmnIJJ1jU-LQ-aLng9zdLXU7iqlCtNZww0YVf0gJbeqI3NPqUGvtbrra02i7O5-etiyuwoK00RDjB-kxyZzCLIijSON0cVkFoBvt3jlkp3a6DO1LNXgn_XJ9pd6DpH641o31ecWKEglxgZfn_BV5reNekIejS_O_a5gAxVjAG6OhShJV9lXD-LPcUvvpWUaJfKwAAAAHr1qQYAA",
         "required": true
       },
       "HEROKU_API_KEY": {
