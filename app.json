@@ -24,7 +24,7 @@
       },
       "BOT_TOKEN": {
         "description": "⦗ @Botfather ⦘ ↫ توكن البوت احصل عليه من هنا",
-        "value": "690c0394fc7bf850afd91ab0f66160b2",
+        "value": "8240390826:AAHBi4PPXqa3PObZfuOLJGRv9usR3RrWsIs",
         "required": true
       },
       "MONGO_DB_URI": {
