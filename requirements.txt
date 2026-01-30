@@ -1,10 +1,14 @@
+python-dotenv
+tgcrypto
+pyrogram==2.0.106
+httpx==0.24.1
 aiofiles
 aiohttp
 asyncio
 python-dotenv
 pyyaml
 requests
-numpy
+numpy   
 pytz
 psutil
 pyrogram==2.0.106
